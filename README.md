@@ -139,7 +139,7 @@ GitHub — веб-сервис, который основан на систем�
 
 > [DOM](https://ru.wikipedia.org/wiki/Document_Object_Model)
 
-> [Проект](https://github.com/SilkShadow90/learnBasic_JS_TS_React)
+> [Проект](https://silkshadow90.github.io/learnBasic_JS_TS_React)
 
 ### <a name="basic"></a>Основные принципы программирования
 
