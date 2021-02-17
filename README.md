@@ -169,6 +169,11 @@ GitHub — веб-сервис, который основан на систем�
 - [Паттерн](https://refactoring.guru/ru/design-patterns/what-is-pattern)
 - [Рефакторинг](https://refactoring.guru/ru/refactoring/what-is-refactoring)
 
+### Расширения для VSCode
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - Проверка стиля кода
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - автоматическая стилизация кода
+
 ### <a name="help"></a>[Помощь](doc/TOC.md) — Помощь по архитектуре проекта. (на английском)
 
 > Продолжение следует
