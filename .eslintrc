@@ -14,6 +14,7 @@
 //    "react"
   ],
   "rules": {
+    "no-plusplus": "off",
     "no-restricted-globals": "off",
     "no-undefined": "off",
     "no-undef": "off",
@@ -28,6 +29,7 @@
     "rest-spread-spacing": "error",
     "semi": "error",
     "semi-spacing": "error",
+    "semi-style": ["error", "last"],
     "space-before-blocks": "error",
     "space-before-function-paren": [
       "error",
