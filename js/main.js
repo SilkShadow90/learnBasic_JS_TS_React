@@ -258,27 +258,29 @@
 
 // alert(getNumber(2))
 //
-const loginName = prompt('кто там?', '');
-const admin = 'admin';
-const verifyPass = '1234';
-const cancel = 'отменено';
-const notAdmin = 'Я Вас не знаю';
-const hello = 'Hello';
-const noPass = 'неверный пароль';
+// const loginName = prompt('кто там?', '');
+// const admin = 'admin';
+// const verifyPass = '1234';
+// const cancel = 'отменено';
+// const notAdmin = 'Я Вас не знаю';
+// const hello = 'Hello';
+// const noPass = 'неверный пароль';
 
-// alert(prompt("кто там?"))
-if (loginName === admin) {
-  const password = prompt('Пароль?', '');
+// // alert(prompt("кто там?"))
+// if (loginName === admin) {
+//   const password = prompt('Пароль?', '');
 
-  if (verifyPass === password) {
-    alert(hello);
-  } else if (password) {
-    alert(noPass);
-  } else {
-    alert(cancel);
-  }
-} else if (loginName) {
-  alert(notAdmin);
-} else {
-  alert(cancel);
-}
+//   if (verifyPass === password) {
+//     alert(hello);
+//   } else if (password) {
+//     alert(noPass);
+//   } else {
+//     alert(cancel);
+//   }
+// } else if (loginName) {
+//   alert(notAdmin);
+// } else {
+//   alert(cancel);
+// }
+// let name = prompt("Ваше имя?", "");
+// confirm(name);
