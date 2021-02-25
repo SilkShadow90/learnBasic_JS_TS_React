@@ -284,3 +284,34 @@
 // }
 // let name = prompt("Ваше имя?", "");
 // confirm(name);
+
+// const a = 2 + 3;
+
+// switch (a) {
+//   case 3:
+//     alert( 'Маловато' );
+//     break;
+//   case 4:
+//     alert( 'В точку!' );
+//     break;
+//   case 5:
+//     alert( 'Перебор' );
+//     break;
+//   default:
+//     alert( "Нет таких значений" );
+// }
+
+// function имя(параметры) {
+// ...тело...
+// function showMessage() {
+//     confirm( 'Всем привет!' );
+//   }
+  
+//   showMessage();
+
+// let userName = "жопа";
+
+// function showMessage() {
+//   let message = "Привет, " + userName;
+//   alert(message);
+// }   не работающее дерьмо
