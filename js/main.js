@@ -306,7 +306,6 @@
 // function showMessage() {
 //     confirm( 'Всем привет!' );
 //   }
-  
 //   showMessage();
 
 // let userName = "жопа";
@@ -315,3 +314,22 @@
 //   let message = "Привет, " + userName;
 //   alert(message);
 // }   не работающее дерьмо
+// let user = {
+//     name: "john",
+//     age: 30,
+// }
+// user.isAdmin = true;
+// alert( user.name );
+// const user = {
+//   name: 'john',
+// };
+// user.name = 'pete';
+// alert(user.name);
+// const user = { name: 'John', age: 30 };
+// const name = {};
+// name.user = 'john';
+// name.surName = 'Smith';    \\выполненное задание , через попу
+// name.user = 'Pete';
+// delete user.name;
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Сумма свойств объекта - полный затуп, нужно объяснение
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!важность: 5
