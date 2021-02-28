@@ -79,10 +79,78 @@ let b = promt('второе число');
 
 alert(+a + +b);
 */
-5 > 4 // true
+/* 5 > 4 // true
 "ананас" > "яблоко" // false
 "2" > "12" // true
 undefined == null // true
 undefined === null // false
 null == "\n0\n" // не понимаю, правильно false
 null === +"\n0\n" // не понимаю, правильно false
+*/
+
+/* if ("0") {
+  alert( 'Привет' ); // нет, правильно да, не увидел что это строка
+} */
+
+/* let languagename = prompt('Какое «официальное» название JavaScript?');
+
+if (languagename == 'ECMAScript) {
+  alert('Верно');
+} else {
+  alert('Не знаете? ECMAScript!');
+} 
+*/
+
+/* let number = prompt('Введите число');
+
+if (number > 0) {
+  number = '1';
+} else if (number < 0) {
+  number = '-1';
+} else if (number == 0) {
+  number = '0';
+}
+alert(number);
+*/
+
+/* let result = a + b < 4 ? 'Мало' : 'Много';
+ */
+
+/* let login = prompt('Введите логин');
+
+let message = (login == 'Сотрудник') ? 'Привет' :
+  (login == 'Директор') ? 'Здравствуйте' :
+  (login == '') ? 'Нет логина' :
+  '';
+
+  alert( message ); что ему не нравится??? 
+Почему после решения проблемы, код перестаёт работать???
+*/
+
+/* alert( null || 2 || undefined ); // 2
+
+alert( alert(1) || 2 || alert(3) ); // 1, правильно сначала 1, затем 2.
+
+alert( 1 && null && 2 ); // null
+
+alert( alert(1) && alert(2) ); // undefined, правильно сначала 1, затем undefined
+
+alert( null || 2 && 3 || 4 ); // сначала проверит 2 && 3, получит 3, далее null || 3 || 4, выведет null, правильно 3
+*/
+
+/* if (age >= 14 && age <= 90)
+
+if (!(age >= 14) && !(age <= 90))
+
+if (age < 14 || age > 90)
+*/
+
+/* let age = prompt('Введите число');
+
+if (age >= 14 && age <= 90) {
+ age = 'Правильно';
+} else if (age <= 14 || age >= 90) {
+ age = 'Неправильно!';
+} 
+alert(age);  
+*/
