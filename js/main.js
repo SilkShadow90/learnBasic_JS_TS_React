@@ -333,3 +333,67 @@
 // delete user.name;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Сумма свойств объекта - полный затуп, нужно объяснение
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!важность: 5
+// объединение объектов нужно лти это ваще ?
+//
+//
+// const login = prompt('Кто там?');
+// const admin = 'admin';
+// const wrongPass = 'Неверный пароль';
+// const cancel = 'Отменено';
+// const wrongLogin = 'Я вас не знаю';
+// const veryPass = 'Я Главный';
+// const hello = 'Здравствуйте';
+// const authentification = 'Пароль?';
+
+// if (login === admin) {
+//   const password = prompt(authentification);
+//   if (password === veryPass) {
+//     alert(hello);
+//   } else if (password === null) {
+//     alert(cancel);
+//   } else {
+//     alert(wrongPass);
+//   }
+// } else if (login === null) {
+//   alert(cancel);
+// } else {
+//   alert(wrongLogin);
+// }     СААААААААААААААААААААААААМ ААААААААААААААААААААААААААААА
+//
+//
+// let number;
+
+// while (true) {
+//   if (number === null || number >= 100) break;
+//   number = prompt('ввести число, большее 100');
+// }
+
+// let num;
+
+// do {
+//   num = prompt("Введите число, большее 100?", 0);
+// } while (num <= 100 && num);
+// const number = prompt('Введите число');
+
+// console.log(getSimplelist(number));
+
+// function getSimplelist(a) {
+//   const array = [];
+//   for (let i = 2; i < a; i++) {
+//     if (getIsSimple(i)) {
+//       array.push(i);
+//     }
+//   }
+//   return array;
+// } 
+
+// function getIsSimple(a) {
+//   let isSimple = true;
+//   for (let n = 2; n < a; n++) {
+//     if (a % n === 0) {
+//       isSimple = false;
+//     }
+//   }
+
+//   return isSimple;
+// }
