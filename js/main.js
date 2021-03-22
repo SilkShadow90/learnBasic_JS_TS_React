@@ -385,7 +385,7 @@
 //     }
 //   }
 //   return array;
-// } 
+// }
 
 // function getIsSimple(a) {
 //   let isSimple = true;
@@ -397,3 +397,62 @@
 
 //   return isSimple;
 // }
+// switch (browser) {
+//     case 'Edge':
+//       alert( "You've got the Edge!" );
+//       break;
+  
+//     case 'Chrome':
+//     case 'Firefox':
+//     case 'Safari':
+//     case 'Opera':
+//       alert( 'Okay we support these browsers too' );
+//       break;
+  
+//     default:
+//       alert( 'We hope that this page looks ok!' );
+//   }
+// const number = +prompt('Введите число между 0 и 3', '');
+// switch (number) {
+//   case 0:
+//     alert('Вы ввели число 0');
+//     break;
+//   case 1:
+//     alert('Вы ввели число 1');
+//     break;
+//   case 2:
+//   case 3:
+//     alert('Вы ввели число 2, а может и 3');
+//     break;
+//   default:
+// }
+
+// if (number === 0) {
+//   alert('Вы ввели число 0');
+// }
+
+// if (number === 1) {
+//   alert('Вы ввели число 1');
+// }
+
+// if (number === 2 || number === 3) {
+//   alert('Вы ввели число 2, а может и 3');
+// }
+// условие истина ложь
+// function min(a, b) {
+  // if (a > b) {
+  //   return b;
+  // }
+
+  // return a;
+  // return a < b ? a : b;
+// }
+// alert(min(3, 3));
+// function checkAge(age) {
+//   // return age > 18 ? true : confirm('Родители разрешили?');
+//   return age > 18 || confirm('Родители разрешили?');
+// }
+// function fib(n) {
+//   return n <= 1 ? n : fib(n - 1) + fib(n - 2);
+// }
+// alert(fib(77)); // вычисляется очень долго
