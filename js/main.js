@@ -401,14 +401,12 @@
 //     case 'Edge':
 //       alert( "You've got the Edge!" );
 //       break;
-  
 //     case 'Chrome':
 //     case 'Firefox':
 //     case 'Safari':
 //     case 'Opera':
 //       alert( 'Okay we support these browsers too' );
 //       break;
-  
 //     default:
 //       alert( 'We hope that this page looks ok!' );
 //   }
@@ -439,13 +437,11 @@
 //   alert('Вы ввели число 2, а может и 3');
 // }
 // условие истина ложь
-// function min(a, b) {
-  // if (a > b) {
-  //   return b;
-  // }
+// function min(a, b) {// if (a > b) {//   return b;
+// }
 
-  // return a;
-  // return a < b ? a : b;
+// return a;
+// return a < b ? a : b;
 // }
 // alert(min(3, 3));
 // function checkAge(age) {
@@ -456,3 +452,155 @@
 //   return n <= 1 ? n : fib(n - 1) + fib(n - 2);
 // }
 // alert(fib(77)); // вычисляется очень долго
+// Напишите код, выполнив задание из каждого пункта отдельной строкой:
+
+// const carA = {
+//   construct: {
+//     isMechanic: true,
+//     maxSpeed: 200,
+//   },
+//   color: 'red',
+// };
+
+// const carB = {
+//   construct: {
+//     isMechanic: true,
+//     maxSpeed: 200,
+//   },
+//   color: 'red',
+//   radio: true,
+// };
+
+// function isEqualCar(car1, car2) {
+//   // превращение обекта в массив
+//   const keysList = Object.keys(car1);
+
+//   // Object.keys(obj) = key[]] | Object.values(obj) - value[]] | Object.entries(obj) = [key, value][]
+
+//   const isLenghtEqual = keysList.length === Object.keys(car2).length;
+
+//   if (!isLenghtEqual) {
+//     return false;
+//   }
+
+//   return keysList.every((key) => {
+//     // car1[key] - value
+//     // если значение ключа является объектом то уходим в рекурсию
+//     if (typeof car1[key] === 'object') {
+//       return isEqualCar(car1[key], car2[key]);
+//     }
+
+//     const isEqual = car1[key] === car2[key];
+
+//     if (!isEqual) {
+//       console.log(key);
+//     }
+
+//     return isEqual;
+//   });
+// }
+
+// console.log(isEqualCar(carA, carB));
+// Создайте пустой объект user.
+// Добавьте свойство name со значением John.
+// Добавьте свойство surname со значением Smith.
+// Измените значение свойства name на Pete.
+// Удалите свойство name из объекта.
+// const user = {}
+// user.name = 'john';
+// user.surname = 'smith';
+// user.name = 'pete';
+// delete user.name;
+// Напишите функцию isEmpty(obj), которая возвращает true, если у объекта нет свойств, иначе false.
+
+// Должно работать так:
+
+// function isEmpty(obj) {
+//   // for (const key in obj) {
+//   //   return false;
+//   // }
+//   // return true;
+//   return Boolean(Object.keys(obj).length);
+// }
+// let schedule = {};
+
+// alert( isEmpty(schedule) ); // true
+
+// schedule["8:30"] = "get up";
+
+// alert( isEmpty(schedule) ); // false
+// до вызова функции
+// Создайте функцию multiplyNumeric(obj), которая умножает все числовые свойства объекта obj на 2.
+// let menu = {
+//   width: 200,
+//   height: 300,
+//   title: "My menu"
+// };
+// function multiplyNumeric(menu) {
+//   Object.entries(menu).forEach(([key, value]) => {
+//     if (typeof value === 'number') {
+//       menu[key] *= 2;
+//     }
+//   });
+//   // for (const key in menu) {
+//   //   if (typeof menu[key] === 'number') {
+//   //     menu[key] *= 2;
+//   //   }
+//   // }
+// }
+// multiplyNumeric(menu);
+// multiplyNumeric(menu);
+// multiplyNumeric(menu);
+// multiplyNumeric(menu);
+// multiplyNumeric(menu);
+// console.log(menu);
+
+// // после вызова функции
+// menu = {
+//   width: 400,
+//   height: 600,
+//   title: "My menu"
+// };
+// Создайте объект calculator (калькулятор) с тремя методами:
+
+// read() (читать) запрашивает два значения и сохраняет их как свойства объекта.
+// sum() (суммировать) возвращает сумму сохранённых значений.
+// mul() (умножить) перемножает сохранённые значения и возвращает результат.
+// const calculator = {
+//   read() {
+//     this.a = +prompt('Введите первое число');
+//     this.b = +prompt('Введите второе число');
+//   },
+//   sum() {
+//     return this.a + this.b;
+//   },
+//   mul() {
+//     return this.a * this.b;
+//   },
+// };
+
+// calculator.read();
+// alert(calculator.sum());
+// alert(calculator.mul());
+// Напишите функцию-конструктор Accumulator(startingValue).
+
+// Объект, который она создаёт, должен уметь следующее:
+
+// Хранить «текущее значение» в свойстве value. Начальное значение устанавливается в аргументе конструктора startingValue.
+// Метод read() использует prompt для получения числа и прибавляет его к свойству value.
+// Таким образом, свойство value является текущей суммой всего, что ввёл пользователь при вызовах метода read(),
+//  с учётом начального значения startingValue.
+
+// Ниже вы можете посмотреть работу кода:
+function Accumulator(startingValue) {
+  this.value = startingValue;
+  this.read = function() {
+    this.value += +prompt('a?');
+  };
+}
+const accumulator = new Accumulator(1); // начальное значение 1
+
+accumulator.read(); // прибавит ввод prompt к текущему значению
+accumulator.read(); // прибавит ввод prompt к текущему значению
+
+alert(accumulator.value); // выведет сумму этих значений
