@@ -639,8 +639,7 @@ function getIsSimple(a) {
 
 // function checkSpam(str) {
 //   let str1 = str.toLowerCase();
-//   let str2 = str.toUpperCase();
-//   return str1.includes('viagra') || str2.includes('XXX');
+//   return str1.includes('viagra') || str2.includes('xxx');
 // }
 // console.log(checkSpam('buy ViAgRA now') == true);
 // console.log(checkSpam('free xxxxx') == true);
@@ -667,7 +666,7 @@ function getIsSimple(a) {
 //   if (str.length <= maxlength) {
 //     return str1;
 //   }
-//   str1 = str1.slice(0,maxlength);
+//   str1 = str1.slice(0,maxlength-3);
 //   return str1 + '...';
 // }
 
@@ -675,8 +674,50 @@ function getIsSimple(a) {
 // console.log (truncate('Пидарасы:', 2))
 // console.log (truncate('Всем привет!', 20))
 
-function extractCurrencyValue(str) {
-  str1 = str
-  return +str1.slice(1);
-};
-alert(extractCurrencyValue('$120') === 120);
+// function extractCurrencyValue(str) {
+//   return +str.slice(1);
+// };
+// alert(extractCurrencyValue('$120') === 120);
+
+// function checkSpam(str) {
+//   const blackList = [
+//   'viagra',
+//   'xxx',
+//   'rabbit',
+//   ];
+
+//   const regExp = new RegExp(blackList.join('|'), 'gi');
+//   const spamList = str.match(regExp);
+  
+//   return Boolean(spamList?.length);
+//   }
+
+/**
+ * @name ucFirst
+ * @param str {string}
+ * @return {string}
+ */
+//  Давайте произведём 5 операций с массивом.
+
+//  Создайте массив styles с элементами «Джаз» и «Блюз».
+//  Добавьте «Рок-н-ролл» в конец.
+//  Замените значение в середине на «Классика». Ваш код для поиска значения в середине должен работать для массивов с любой длиной.
+//  Удалите первый элемент массива и покажите его.
+//  Вставьте «Рэп» и «Регги» в начало массива.
+
+// const styles = ['Джаз', 'Блюз'];
+// console.log(styles);
+// styles.push('Рок-н-ролл');
+// console.log(styles);
+// styles[1] = 'Классика';
+// console.log(styles);
+// console.log(styles.shift());
+// console.log(styles);
+// styles.unshift('Рэп' , 'Регги');
+// console.log(styles);
+
+// Джаз, Блюз
+// Джаз, Блюз, Рок-н-ролл
+// Джаз, Классика, Рок-н-ролл
+// Классика, Рок-н-ролл
+// Рэп, Регги, Классика, Рок-н-ролл
