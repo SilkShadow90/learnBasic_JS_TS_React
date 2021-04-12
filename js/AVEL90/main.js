@@ -688,7 +688,7 @@ function getIsSimple(a) {
 
 //   const regExp = new RegExp(blackList.join('|'), 'gi');
 //   const spamList = str.match(regExp);
-  
+
 //   return Boolean(spamList?.length);
 //   }
 
@@ -721,3 +721,22 @@ function getIsSimple(a) {
 // Джаз, Классика, Рок-н-ролл
 // Классика, Рок-н-ролл
 // Рэп, Регги, Классика, Рок-н-ролл
+
+// Напишите функцию sumInput(), которая:
+
+// Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+// Заканчивает запрашивать значения, когда пользователь введёт не числовое значение, пустую строку или нажмёт «Отмена».
+// Подсчитывает и возвращает сумму элементов массива.
+// P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
+
+const arrayNumber = [3];
+function sumInput() {
+  const pro = prompt('Bведите число');
+  arrayNumber.push(pro);
+  if (pro === Number) {
+    sumInput()
+    console.log(arrayNumber);
+  }
+  return arrayNumber;
+}
+sumInput();
