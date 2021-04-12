@@ -729,14 +729,165 @@ function getIsSimple(a) {
 // Подсчитывает и возвращает сумму элементов массива.
 // P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
 
-const arrayNumber = [3];
-function sumInput() {
-  const pro = prompt('Bведите число');
-  arrayNumber.push(pro);
-  if (pro === Number) {
-    sumInput()
-    console.log(arrayNumber);
-  }
-  return arrayNumber;
-}
-sumInput();
+// function sumInput(arrayNumbers = []) {
+//   const pro = prompt('Bведите число');
+
+//   if (pro === '' || pro === null || isNaN(+pro)) {
+//     let sum = 0;
+//     for (let arrayNumber of arrayNumbers) {
+//       sum += arrayNumber;
+//     }
+
+//     return sum;
+//   }
+
+//   arrayNumbers.push(+pro);
+//   sumInput(arrayNumbers);
+// }
+
+// alert(sumInput());
+
+// Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+
+// То есть дефисы удаляются, а все слова после них получают заглавную букву.
+
+// Примеры:
+
+// P.S. Подсказка: используйте split, чтобы разбить строку на массив символов, потом переделайте всё как нужно и методом join соедините обратно.
+// /**
+//  * @name camelize
+//  * @param {string} str
+//  * @return {string}
+//  */
+// function camelize(str) {
+//   const qwe = str.split('');
+//   let index = 0;
+
+//   while (true) {
+//     index = qwe.indexOf('-', index);
+//     if (index === -1) {
+//       break;
+//     }
+//     index++;
+//     qwe[index] = qwe[index].toUpperCase();
+//   }
+
+//   function f(value) {
+//     return value !== '-';
+//   }
+
+//   const qwe2 = qwe.filter(f);
+
+//   console.log(qwe2.join(''));
+//   return qwe2.join('');
+// }
+// camelize("list-style-image") == 'listStyleImage';
+// camelize("-webkit-transition") == 'WebkitTransition';
+// camelize("background-color") == 'backgroundColor';
+
+// Напишите функцию filterRange(arr, a, b), которая принимает массив arr, ищет в нём элементы между a и b и отдаёт массив этих элементов.
+
+// Функция должна возвращать новый массив и не изменять исходный.
+
+// /**
+//  * @name filterRange
+//  * @param {Array<number>} arr
+//  * @param {number} a
+//  * @param {number} b
+//  * @return {Array<number>}
+//  */
+// function filterRange(arr, a, b) {
+//   return arr.filter((value) => a <= value && value <= b);
+// }
+
+// let arr = [5, 3, 8, 1, 32, 2, 4, 13];
+
+// let filtered = filterRange(arr, 4, 13);
+
+// // todo qrewrte
+// console.log( filtered ); // 3,1 (совпадающие значения)
+
+// console.log( arr ); // 5,3,8,1 (без изменений)
+
+// Напишите функцию filterRangeInPlace(arr, a, b), которая принимает массив arr и
+// удаляет из него все значения кроме тех, которые находятся между a и b. То есть, проверка имеет вид a ≤ arr[i] ≤ b.
+
+// Функция должна изменять принимаемый массив и ничего не возвращать.
+
+// /**
+//  * @name filterRangeInPlace
+//  * @param {Array<number>} arr
+//  * @param {number} a
+//  * @param {number} b
+//  */
+// function filterRangeInPlace(arr, a, b) {
+//   arr.forEach((value, index) => {
+//     if (!(a <= value && value <= b)) {
+//       arr.splice(index, 1);
+//     }
+//   });
+// }
+
+// let array = [5, 3, 8, 1];
+
+// filterRangeInPlace(array, 1, 4); // удалены числа вне диапазона 1..4
+
+// console.log(array); // [3, 1]
+
+// const arr = [5, 2, 1, -10, 8];
+
+// arr.sort((a, b) => {return b - a});
+
+// console.log(arr); // 8, 5, 2, 1, -10
+
+// У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
+
+// Создайте функцию copySorted(arr), которая будет возвращать такую копию.
+
+// function copySorted(arr) {
+//   return arr.slice().sort();
+// }
+
+// let arr = ["HTML", "JavaScript", "CSS"];
+
+// let sorted = copySorted(arr);
+
+// console.log(sorted); // CSS, HTML, JavaScript
+// console.log(arr); // HTML, JavaScript, CSS (без изменений)
+
+// У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
+
+// let vasya = { name: 'Вася', age: 25 };
+// let petya = { name: 'Петя', age: 30 };
+// let masha = { name: 'Маша', age: 28 };
+
+// let users = [vasya, petya, masha];
+
+// let names = users.map(item => item.name);
+
+// console.log(names); // Вася, Петя, Маша
+
+// У вас есть массив объектов user, и у каждого из объектов есть name, surname и id.
+
+// Напишите код, который создаст ещё один массив объектов с параметрами id и fullName, где fullName – состоит из name и surname.
+
+let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
+let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
+let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
+
+let users = [vasya, petya, masha];
+
+let usersMapped = users.map((item) => {
+  fullName = item.name + item.surname;
+});
+
+// usersMapped = [
+//   { fullName: "Вася Пупкин", id: 1 },
+//   { fullName: "Петя Иванов", id: 2 },
+//   { fullName: "Маша Петрова", id: 3 }
+// ]
+
+
+console.log( usersMapped[0].id ) // 1
+console.log( usersMapped[0].fullName ) // Вася Пупкин
+// Итак, на самом деле вам нужно трансформировать один массив объектов в другой. Попробуйте использовать =>. Это небольшая уловка.
