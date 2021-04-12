@@ -1,0 +1,57 @@
+/*ul li {*/
+/*    padding: 20px;*/
+/*    background-color: #888888;*/
+/*}*/
+
+/*ul {*/
+/*    display: flex;*/
+/*}*/
+
+.image {
+ background-image: url(../../img/1.png)
+}
+
+.fullScreen {
+ flex-direction: column;
+ display: flex;
+ width: 100vw;
+ height: 100vh;
+ background-color: #f8f8f8;
+}
+
+.absolute {
+ position: absolute;
+ top: 0;
+ right: 0;
+ bottom: 0;
+ left: 0;
+}
+
+.loader__wrapper {
+ background-color: #00000020;
+}
+
+.loader {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+
+.card {
+ text-decoration: none;
+ opacity: 1;
+ transition: 0.3s;
+}
+
+.card:hover {
+ text-decoration: none;
+ opacity: 0.5;
+}
+
+.logout-container {
+ width: 200px;
+ display: flex;
+ justify-content: space-around;
+}
+

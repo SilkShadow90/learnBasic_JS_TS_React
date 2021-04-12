@@ -19,7 +19,7 @@ const textArray = [
 
 let i;
 
-for (i = 0; i < textArray.length; i++) {
+for (i = 0; i < textArray?.length; i++) {
   // создание тега <p>
   const p = document.createElement('p');
   // поиск текста в массиве по индексу
