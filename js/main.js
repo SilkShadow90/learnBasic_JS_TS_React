@@ -331,7 +331,7 @@
 // name.surName = 'Smith';    \\выполненное задание , через попу
 // name.user = 'Pete';
 // delete user.name;
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Сумма свойств объекта - полный затуп, нужно объяснение
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Сумма свойств объекта - полный затуп, нужно объяснение
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!важность: 5
 // объединение объектов нужно лти это ваще ?
 //
@@ -475,7 +475,7 @@
 //   // превращение обекта в массив
 //   const keysList = Object.keys(car1);
 
-//   // Object.keys(obj) = key[]] | Object.values(obj) - value[]] | Object.entries(obj) = [key, value][]
+// Object.keys(obj) = key[]] | Object.values(obj) - value[]] | Object.entries(obj) = [key, value][]
 
 //   const isLenghtEqual = keysList.length === Object.keys(car2).length;
 
@@ -603,115 +603,115 @@
 // accumulator.read(); // прибавит ввод prompt к текущему значению
 // accumulator.read(); // прибавит ввод prompt к текущему значению
 
-// alert(accumulator.value); // выведет сумму этих значений
-// Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом. Например:
-/**
- * @name ucFirst
- * @param str {string}
- * @return {string}
- */
-// function ucFirst(str) {
-//   return str[0].toUpperCase() + str.slice(1);
-// }
-
-// console.log(ucFirst("вася") === "Вася")
-// Напишите функцию checkSpam(str), возвращающую true, если str содержит 'viagra' или 'XXX', а иначе false.
-
-// Функция должна быть нечувствительна к регистру:
-/**
- * @name checkSpam
- * @param str {string}
- * @return {boolean}
- */
-// function checkSpam(str) {
-//   const spam = str.toUpperCase();
-//   return spam.includes('VIAGRA') || spam.includes('XXX');
-// }
-
-// console.log(checkSpam('buy ViAgRA now') == true);
-// console.log(checkSpam('free xxxxx') == true);
-// console.log(checkSpam("innocent rabbit") == false);
-
-
-
-// Создайте функцию truncate(str, maxlength),
-//  которая проверяет длину строки str и,
-//   если она превосходит maxlength,
-//    заменяет конец str на "…", так,
-//     чтобы её длина стала равна maxlength.
-
-// // Результатом функции должна быть та же строка,
-//  если усечение не требуется, либо, если необходимо,
-//   усечённая строка.
-/**
- * @name truncate
- * @param str {string}
- * @param maxlength {number}
- * @return {string}
- */
-// function truncate(str, maxlength) {
-//   // if (str.length > maxlength) {
-//   //   return str.slice(0, maxlength-3)+'…';
-//   // }
-//   // return str
-//   return str.length > maxlength ? str.slice(0, maxlength-3)+'…' : str;
-// }
-
-
-// console.log(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20))
-
-// console.log(truncate("Всем привет!", 30))
-// Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
-
-// Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять числовое значение и возвращать его.
-
-// Например:
-/**
-//  * @name extractCurrencyValue
-//  * @description Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
-//  *  Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять числовое значение и возвращать его.
+// // alert(accumulator.value); // выведет сумму этих значений
+// // Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом. Например:
+// /**
+//  * @name ucFirst
 //  * @param str {string}
+//  * @return {string}
+//  */
+// // function ucFirst(str) {
+// //   return str[0].toUpperCase() + str.slice(1);
+// // }
+
+// // console.log(ucFirst("вася") === "Вася")
+// // Напишите функцию checkSpam(str), возвращающую true, если str содержит 'viagra' или 'XXX', а иначе false.
+
+// // Функция должна быть нечувствительна к регистру:
+// /**
+//  * @name checkSpam
+//  * @param str {string}
+//  * @return {boolean}
+//  */
+// // function checkSpam(str) {
+// //   const spam = str.toUpperCase();
+// //   return spam.includes('VIAGRA') || spam.includes('XXX');
+// // }
+
+// // console.log(checkSpam('buy ViAgRA now') == true);
+// // console.log(checkSpam('free xxxxx') == true);
+// // console.log(checkSpam("innocent rabbit") == false);
+
+
+
+// // Создайте функцию truncate(str, maxlength),
+// //  которая проверяет длину строки str и,
+// //   если она превосходит maxlength,
+// //    заменяет конец str на "…", так,
+// //     чтобы её длина стала равна maxlength.
+
+// // // Результатом функции должна быть та же строка,
+// //  если усечение не требуется, либо, если необходимо,
+// //   усечённая строка.
+// /**
+//  * @name truncate
+//  * @param str {string}
+//  * @param maxlength {number}
+//  * @return {string}
+//  */
+// // function truncate(str, maxlength) {
+// //   // if (str.length > maxlength) {
+// //   //   return str.slice(0, maxlength-3)+'…';
+// //   // }
+// //   // return str
+// //   return str.length > maxlength ? str.slice(0, maxlength-3)+'…' : str;
+// // }
+
+
+// // console.log(truncate("Вот, что мне хотелось бы сказать на эту тему:", 20))
+
+// // console.log(truncate("Всем привет!", 30))
+// // Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
+
+// // Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять числовое значение и возвращать его.
+
+// // Например:
+// /**
+// //  * @name extractCurrencyValue
+// //  * @description Есть стоимость в виде строки "$120". То есть сначала идёт знак валюты, а затем – число.
+// //  *  Создайте функцию extractCurrencyValue(str), которая будет из такой строки выделять числовое значение и возвращать его.
+// //  * @param str {string}
+// //  * @return {number}
+// //  */
+
+// // function extractCurrencyValue(str) {
+// //   return Number(str.slice(1));
+// // }
+// // alert( extractCurrencyValue('$120') === 120 ); // true
+
+// //
+// //
+// //
+// //
+// //
+
+// // Напишите функцию sumInput(), которая:
+
+// // Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+// // Заканчивает запрашивать значения, когда пользователь введёт не числовое значение,
+// //  пустую строку или нажмёт «Отмена».
+// // Подсчитывает и возвращает сумму элементов массива.
+// // P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
+// /**
+//  * @name sumInput
 //  * @return {number}
 //  */
+// function sumInput() {
+//   const array = [];
 
-// function extractCurrencyValue(str) {
-//   return Number(str.slice(1));
+//   while (true) {
+//     const str = prompt('Введите значение');
+//     if (str === null || str === '' || isNaN(+str)) {
+//       break;
+//     }
+//     array.push(+str);
+//   }
+
+//   function sum(a, b) {
+//     return a + b;
+//   }
+
+//   return array.reduce(sum, 0);
 // }
-// alert( extractCurrencyValue('$120') === 120 ); // true
 
-//
-//
-//
-//
-//
-
-// Напишите функцию sumInput(), которая:
-
-// Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
-// Заканчивает запрашивать значения, когда пользователь введёт не числовое значение,
-//  пустую строку или нажмёт «Отмена».
-// Подсчитывает и возвращает сумму элементов массива.
-// P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
-/**
- * @name sumInput
- * @return {number}
- */
-function sumInput() {
-  const array = [];
-
-  while (true) {
-    const str = prompt('Введите значение');
-    if (str === null || str === '' || isNaN(+str)) {
-      break;
-    }
-    array.push(+str);
-  }
-
-  function sum(a, b) {
-    return a + b;
-  }
-
-  return array.reduce(sum, 0);
-}
-
-alert(sumInput());
+// alert(sumInput());
