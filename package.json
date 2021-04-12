@@ -16,6 +16,7 @@
     "eslint-plugin-graphql": "^0.4.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-meteor": "^4.0.1",
+    "@typescript-eslint/parser": "^4.21.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.20.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -26,5 +27,10 @@
     "eslint-plugin-prettier": "^3.3.1",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "@types/parcel-env": "^0.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "typescript": "^4.2.4"
   }
 }
