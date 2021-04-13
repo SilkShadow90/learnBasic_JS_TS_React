@@ -12,7 +12,7 @@ enum EUserMasters {
   Alex = 'Alex',
 }
 
-type TMaster = typeof masters[number]; // 'Vasia', 'Petia', 'Alex',
+type TMaster = typeof masters[number]; // 'Vasia' || 'Petia' || 'Alex',
 
 // описание объекта
 interface ICar {
