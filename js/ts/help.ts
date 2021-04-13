@@ -49,6 +49,11 @@ type TOperator = typeof operators[number];
 type TCalcString = `${number} ${TOperator} ${number}`;
 
 function math(str: TCalcString): number {
+  const regexpMath = new RegExp(/\d+\s[+\-*/][*]?\s\d+/);
+
+  if (!regexpMath.test(str)) {
+    return NaN;
+  }
   // eslint-disable-next-line no-new-func
   return (new Function(`return ${str}`))(); // не безопастно!!!
 }
