@@ -2,3 +2,4 @@ node_modules
 js/plugins.js
 js/vendor
 dist
+js/ts/*.js
