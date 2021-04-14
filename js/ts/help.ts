@@ -140,12 +140,17 @@ function getAnagrams(str: string): string[] {
     return value.split('').sort().join('');
   }
 
+  function sortAnagramsCount(a: string, b: string): number {
+    return a.split('-').length - b.split('-').length;
+  }
+
   const anagramsArray: string[] = str
     .split(' ')
     .sort((a: string, b: string) => a.length - b.length)
     .map((value: string, _, array: string[]) => array
       .filter((item: string) => toAlphabet(value) === toAlphabet(item))
-      .join('-'));
+      .join('-'))
+    .sort(sortAnagramsCount);
 
   return Array.from(new Set(anagramsArray));
 }
