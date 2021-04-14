@@ -60,3 +60,154 @@ function math(str: TCalcString): number {
 
 // console.log(math('1 + 3')); // 4
 // console.log(math('1 - 3')); // -2
+
+/*
+Дан массив с датами.
+Необходимо написать функцию, которая вернёт объект вида:
+
+{
+  "2019": ["05-02", "22-09" "07-12"];
+  "2015": ["12-01"];
+  "2010": ["10-06", "25-07"];
+}
+
+Даты в массивах должны быть отсортированы по возрастанию
+*/
+
+interface IDateObject {
+  date: string;
+}
+
+interface ISortedDateObject {
+  [key: string]: string[];
+}
+
+const data: IDateObject[] = [
+  { date: '2019-12-07' },
+  { date: '2015-01-12' },
+  { date: '2010-07-25' },
+  { date: '2010-06-10' },
+  { date: '2019-02-02' },
+  { date: '2019-09-22' },
+];
+
+function sortDate(arr: IDateObject[]): ISortedDateObject {
+  const maxLevel = 2;
+
+  // работает в принципе и без нее :)
+  function sortLeveling(a: string[], b: string[], level = 0): number {
+    switch (true) {
+      case a[level] > b[level]:
+        return level ? 1 : -1;
+      case a[level] < b[level]:
+        return level ? -1 : 1;
+      case level === maxLevel:
+        return 0;
+      case a[level] === b[level]:
+      default:
+        return sortLeveling(a, b, level + 1);
+    }
+  }
+
+  return arr
+    .map((item: IDateObject) => item.date.split('-'))
+    .sort(sortLeveling)
+    .reduce((acc: ISortedDateObject, item: string[]) => {
+      // для нужного отображения костылек в виде прозрачного символа \u0000
+      const objectKey = `\u0000${item[0]}`;
+
+      if (!acc[objectKey]) {
+        acc[objectKey] = [];
+      }
+
+      acc[objectKey].push(item.slice(1).reverse().join('-'));
+      // acc[objectKey].push(`${item[2]}-${item[1]}`); // не принципиально
+
+      return acc;
+    }, {});
+}
+
+console.log(sortDate(data));
+
+/* Напишите функцию, которая найдет все наборы анаграмм в строке
+Анаграммы – это слова, у которых те же буквы в том же количестве, но они располагаются в другом порядке (рост-сорт-торс).
+*/
+
+const str = 'адрес карп кума куст мир мука парк рим среда стук рост сорт трос';
+
+function getAnagrams(str: string): string[] {
+  function toAlphabet(value: string): string {
+    return value.split('').sort().join('');
+  }
+
+  const anagramsArray: string[] = str
+    .split(' ')
+    .sort((a: string, b: string) => a.length - b.length)
+    .map((value: string, _, array: string[]) => array
+      .filter((item: string) => toAlphabet(value) === toAlphabet(item))
+      .join('-'));
+
+  return Array.from(new Set(anagramsArray));
+}
+
+console.log(getAnagrams(str));
+
+/* Напишите функцию, которая принимает строку из чисел и возвращает строку с максимальным и минимальным числами из начальной строки
+
+highAndLow("1 2 3 4 5");  // return "5 1"
+highAndLow("1 2 -3 4 5"); // return "5 -3"
+highAndLow("1 9 3 4 -5"); // return "9 -5"
+
+*/
+
+function highAndLow1(str: string): string {
+  // первый вариант - самый масштабируемый
+  const numbersArray: string[] = str
+    .split(' ')
+    .filter((value) => isFinite(Number(value)))
+    .sort((a, b) => Number(a) - Number(b));
+
+  return `${numbersArray[0]} ${numbersArray[numbersArray?.length - 1]}`;
+}
+
+function highAndLow2(str: string): string {
+  // второй вариант - самый простой в исполнении - самый не защищенный
+  const numbersArray: Array<string | number> = str
+    .replace(/[^\d\s-]/g, '') // добавление защищенности делает его не таким уж простым))
+    .split(' ');
+
+  const min: number = Math.min(...numbersArray as number[]);
+  const max: number = Math.max(...numbersArray as number[]);
+
+  return `${min} ${max}`;
+}
+
+function highAndLow3(str: string): string {
+  // третий вариант - самый оптимизированный - самый трудночитаемый
+  return str
+    .split(' ')
+    .reduce(((acc: [number, number], value: string) => {
+      const number = Number(value);
+
+      switch (true) {
+        case isNaN(number):
+          break;
+        case !acc.length:
+          return [number, number];
+        case number < acc[0]:
+          acc[0] = number;
+          break;
+        case number > acc[1]:
+          acc[1] = number;
+          break;
+        default:
+      }
+
+      return acc;
+    }), [])
+    .join(' ');
+}
+
+console.log(highAndLow1('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
+console.log(highAndLow2('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
+console.log(highAndLow3('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
