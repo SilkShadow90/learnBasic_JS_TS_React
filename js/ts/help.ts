@@ -140,8 +140,12 @@ function getAnagrams(str: string): string[] {
     return value.split('').sort().join('');
   }
 
+  function anagramsLength(value: string): number {
+    return value.split('-').length;
+  }
+
   function sortAnagramsCount(a: string, b: string): number {
-    return a.split('-').length - b.split('-').length;
+    return anagramsLength(a) - anagramsLength(b);
   }
 
   const anagramsArray: string[] = str
