@@ -178,7 +178,7 @@ function highAndLow1(str: string): string {
 function highAndLow2(str: string): string {
   // второй вариант - самый простой в исполнении - самый не защищенный
   const numbersArray: Array<string | number> = str
-    .replace(/[^\d\s-]/g, '') // добавление защищенности делает его не таким уж простым))
+    // .replace(/[^\d\s-]/g, '') // добавление защищенности делает его не таким уж простым))
     .split(' ');
 
   const min: number = Math.min(...numbersArray as number[]);
