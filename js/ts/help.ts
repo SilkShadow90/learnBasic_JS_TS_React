@@ -152,12 +152,26 @@ function getAnagrams(str: string): string[] {
   const anagramsArray: string[] = str
     .split(' ')
     .sort((a: string, b: string) => a.length - b.length)
-    .map((value: string, _, array: string[]) => array
-      .filter((item: string) => toAlphabet(value) === toAlphabet(item))
-      .join('-'))
-    .sort(sortAnagramsCount);
+    // вариант с map легче читается но перебирает весь массив array.length * array.length раз и требуетя очистка дублей
+    // map ~ 1.400ms
+    // .map((value: string, _, array: string[]) => array
+    //   .filter((item: string) => toAlphabet(value) === toAlphabet(item))
+    //   .join('-'))
+    // вариант с reduce более оптимизированный так как основной массив перебирается один раз, но сложнее в восприятии
+    // reduce ~ 0.850ms
+    .reduce((acc: string[], value) => {
+      const index = acc.findIndex((item) => toAlphabet(item.split('-')?.[0]) === toAlphabet(value));
+      if (index !== -1 && !acc[index].split('-').includes(value)) {
+        acc[index] += `-${value}`;
+      } else {
+        acc.push(value);
+      }
 
-  return Array.from(new Set(anagramsArray));
+      return acc;
+    }, [])
+    .sort(sortAnagramsCount);
+  // return Array.from(new Set(anagramsArray)); // при map - удаление дублей
+  return anagramsArray; // при reduce
 }
 
 console.log(getAnagrams(str));
