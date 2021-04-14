@@ -93,6 +93,7 @@ const data: IDateObject[] = [
 
 function sortDate(arr: IDateObject[]): ISortedDateObject {
   const maxLevel = 2;
+  const secretKeyToVictory = '\u0000';
 
   // работает в принципе и без нее :)
   function sortLeveling(a: string[], b: string[], level = 0): number {
@@ -114,7 +115,7 @@ function sortDate(arr: IDateObject[]): ISortedDateObject {
     .sort(sortLeveling)
     .reduce((acc: ISortedDateObject, item: string[]) => {
       // для нужного отображения костылек в виде прозрачного символа \u0000
-      const objectKey = `\u0000${item[0]}`;
+      const objectKey = secretKeyToVictory + item[0];
 
       if (!acc[objectKey]) {
         acc[objectKey] = [];
@@ -170,17 +171,7 @@ highAndLow("1 9 3 4 -5"); // return "9 -5"
 */
 
 function highAndLow1(str: string): string {
-  // первый вариант - самый масштабируемый
-  const numbersArray: string[] = str
-    .split(' ')
-    .filter((value) => isFinite(Number(value)))
-    .sort((a, b) => Number(a) - Number(b));
-
-  return `${numbersArray[0]} ${numbersArray[numbersArray?.length - 1]}`;
-}
-
-function highAndLow2(str: string): string {
-  // второй вариант - самый простой в исполнении - самый не защищенный
+  // первый вариант - самый простой в исполнении - самый не защищенный
   const numbersArray: Array<string | number> = str
     // .replace(/[^\d\s-]/g, '') // добавление защищенности делает его не таким уж простым))
     .split(' ');
@@ -189,6 +180,16 @@ function highAndLow2(str: string): string {
   const max: number = Math.max(...numbersArray as number[]);
 
   return `${min} ${max}`;
+}
+
+function highAndLow2(str: string): string {
+  // второй вариант - самый масштабируемый
+  const numbersArray: string[] = str
+    .split(' ')
+    .filter((value) => isFinite(Number(value)))
+    .sort((a, b) => Number(a) - Number(b));
+
+  return `${numbersArray[0]} ${numbersArray[numbersArray?.length - 1]}`;
 }
 
 function highAndLow3(str: string): string {
