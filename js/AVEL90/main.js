@@ -14,6 +14,8 @@
 
 // const planetName = 'wqewq';
 
+// const planetName = 'wqewq';
+
 // const planet = {
 //   name: 'qwe',
 //   size: 3243,
@@ -26,11 +28,49 @@
 
 // let b = alert('wqe');
 
-// alert(name);
+// // // alert(name);
 // function getSum(a, b) {
 //   if (typeof a === 'string') {
 //     return 'Хуйня';
 //   }
+
+//   return a + b;
+
+//   // fsdjkfhsdkfhe
+// }
+
+// const summaBabla = getSum(+name, 200);
+
+// alert(summaBabla);
+
+// let a = 1, b = 1;
+
+// let c = ++a;
+// let d = b++;
+
+// a = 1, правильно 2
+// b = 1, правильно 2
+// c = 2
+// d = 1
+
+// let a = 2
+// let x = 1 + (a *= 2) // x = 5
+
+// "" + 1 + 0 // 1 , правильно "10"
+// "" - 1 + 0 // -1
+// true + false // 1
+// 6 / "3" // 2
+// "2" * "3" // 6
+// 4 + 5 + "px" // NaN , правильно "9px"
+// "$" + 4 + 5 // NaN , , правильно "$45"
+// "4" - 2 // 2
+// "4px" - 2 // NaN
+// 7 / 0 // NaN , Infinity
+// "  -9  " + 5 // -4 , правильно "  -9  5"
+// "  -9  " - 5 // -14
+// null + 1 //  1
+// undefined + 1 // NaN
+// " \t \n" - 2 // NaN , правильно -2
 
 //   return a + b;
 
@@ -268,7 +308,7 @@
     }
   }
   return array;
-} 
+}
 
 function getIsSimple(a) {
   let isSimple = true;
@@ -406,7 +446,7 @@ function getIsSimple(a) {
 //   // превращение обекта в массив
 //   const keysList = Object.keys(car1);
 
-//   // Object.keys(obj) = key[]] | Object.values(obj) - value[]] | Object.entries(obj) = [key, value][]
+// Object.keys(obj) = key[]] | Object.values(obj) - value[]] | Object.entries(obj) = [key, value][]
 
 //   const isLenghtEqual = keysList.length === Object.keys(car2).length;
 
@@ -625,8 +665,7 @@ function getIsSimple(a) {
 
 // function checkSpam(str) {
 //   let str1 = str.toLowerCase();
-//   let str2 = str.toUpperCase();
-//   return str1.includes('viagra') || str2.includes('XXX');
+//   return str1.includes('viagra') || str2.includes('xxx');
 // }
 // console.log(checkSpam('buy ViAgRA now') == true);
 // console.log(checkSpam('free xxxxx') == true);
@@ -653,7 +692,7 @@ function getIsSimple(a) {
 //   if (str.length <= maxlength) {
 //     return str1;
 //   }
-//   str1 = str1.slice(0,maxlength);
+//   str1 = str1.slice(0,maxlength-3);
 //   return str1 + '...';
 // }
 
@@ -661,8 +700,225 @@ function getIsSimple(a) {
 // console.log (truncate('Пидарасы:', 2))
 // console.log (truncate('Всем привет!', 20))
 
-function extractCurrencyValue(str) {
-  str1 = str;
-  return +str1.slice(1);
-}
-alert(extractCurrencyValue('$120') === 120);
+// function extractCurrencyValue(str) {
+//   return +str.slice(1);
+// };
+// alert(extractCurrencyValue('$120') === 120);
+
+// function checkSpam(str) {
+//   const blackList = [
+//   'viagra',
+//   'xxx',
+//   'rabbit',
+//   ];
+
+//   const regExp = new RegExp(blackList.join('|'), 'gi');
+//   const spamList = str.match(regExp);
+
+//   return Boolean(spamList?.length);
+//   }
+
+/**
+ * @name ucFirst
+ * @param str {string}
+ * @return {string}
+ */
+//  Давайте произведём 5 операций с массивом.
+
+//  Создайте массив styles с элементами «Джаз» и «Блюз».
+//  Добавьте «Рок-н-ролл» в конец.
+//  Замените значение в середине на «Классика». 
+//  Ваш код для поиска значения в середине должен работать для массивов с любой длиной.
+//  Удалите первый элемент массива и покажите его.
+//  Вставьте «Рэп» и «Регги» в начало массива.
+
+// const styles = ['Джаз', 'Блюз'];
+// console.log(styles);
+// styles.push('Рок-н-ролл');
+// console.log(styles);
+// styles[1] = 'Классика';
+// console.log(styles);
+// console.log(styles.shift());
+// console.log(styles);
+// styles.unshift('Рэп' , 'Регги');
+// console.log(styles);
+
+// Джаз, Блюз
+// Джаз, Блюз, Рок-н-ролл
+// Джаз, Классика, Рок-н-ролл
+// Классика, Рок-н-ролл
+// Рэп, Регги, Классика, Рок-н-ролл
+
+// Напишите функцию sumInput(), которая:
+
+// Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
+// Заканчивает запрашивать значения, когда пользователь введёт не числовое значение,
+// пустую строку или нажмёт «Отмена».
+// Подсчитывает и возвращает сумму элементов массива.
+// P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
+
+// function sumInput(arrayNumbers = []) {
+//   const pro = prompt('Bведите число');
+
+//   if (pro === '' || pro === null || isNaN(+pro)) {
+//     let sum = 0;
+//     for (let arrayNumber of arrayNumbers) {
+//       sum += arrayNumber;
+//     }
+
+//     return sum;
+//   }
+
+//   arrayNumbers.push(+pro);
+//   sumInput(arrayNumbers);
+// }
+
+// alert(sumInput());
+
+// Напишите функцию camelize(str),
+// которая преобразует строки вида «my-short-string» в «myShortString».
+
+// То есть дефисы удаляются, а все слова после них получают заглавную букву.
+
+// Примеры:
+
+// P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
+//  потом переделайте всё как нужно и методом join соедините обратно.
+// /**
+//  * @name camelize
+//  * @param {string} str
+//  * @return {string}
+//  */
+// function camelize(str) {
+//   const qwe = str.split('');
+//   let index = 0;
+
+//   while (true) {
+//     index = qwe.indexOf('-', index);
+//     if (index === -1) {
+//       break;
+//     }
+//     index++;
+//     qwe[index] = qwe[index].toUpperCase();
+//   }
+
+//   function f(value) {
+//     return value !== '-';
+//   }
+
+//   const qwe2 = qwe.filter(f);
+
+//   console.log(qwe2.join(''));
+//   return qwe2.join('');
+// }
+// camelize("list-style-image") == 'listStyleImage';
+// camelize("-webkit-transition") == 'WebkitTransition';
+// camelize("background-color") == 'backgroundColor';
+
+// Напишите функцию filterRange(arr, a, b), которая принимает массив arr, ищет в нём элементы между a и b и отдаёт массив этих элементов.
+
+// Функция должна возвращать новый массив и не изменять исходный.
+
+// /**
+//  * @name filterRange
+//  * @param {Array<number>} arr
+//  * @param {number} a
+//  * @param {number} b
+//  * @return {Array<number>}
+//  */
+// function filterRange(arr, a, b) {
+//   return arr.filter((value) => a <= value && value <= b);
+// }
+
+// let arr = [5, 3, 8, 1, 32, 2, 4, 13];
+
+// let filtered = filterRange(arr, 4, 13);
+
+// // todo qrewrte
+// console.log( filtered ); // 3,1 (совпадающие значения)
+
+// console.log( arr ); // 5,3,8,1 (без изменений)
+
+// Напишите функцию filterRangeInPlace(arr, a, b), которая принимает массив arr и
+// удаляет из него все значения кроме тех, которые находятся между a и b. То есть, проверка имеет вид a ≤ arr[i] ≤ b.
+
+// Функция должна изменять принимаемый массив и ничего не возвращать.
+
+// /**
+//  * @name filterRangeInPlace
+//  * @param {Array<number>} arr
+//  * @param {number} a
+//  * @param {number} b
+//  */
+// function filterRangeInPlace(arr, a, b) {
+//   arr.forEach((value, index) => {
+//     if (!(a <= value && value <= b)) {
+//       arr.splice(index, 1);
+//     }
+//   });
+// }
+
+// let array = [5, 3, 8, 1];
+
+// filterRangeInPlace(array, 1, 4); // удалены числа вне диапазона 1..4
+
+// console.log(array); // [3, 1]
+
+// const arr = [5, 2, 1, -10, 8];
+
+// arr.sort((a, b) => b - a);
+
+// console.log(arr); // 8, 5, 2, 1, -10
+
+// У нас есть массив строк arr. Нужно получить отсортированную копию, но оставить arr неизменённым.
+
+// Создайте функцию copySorted(arr), которая будет возвращать такую копию.
+
+// function copySorted(arr) {
+//   return arr.slice().sort();
+// }
+
+// let arr = ["HTML", "JavaScript", "CSS"];
+
+// let sorted = copySorted(arr);
+
+// console.log(sorted); // CSS, HTML, JavaScript
+// console.log(arr); // HTML, JavaScript, CSS (без изменений)
+
+// У вас есть массив объектов user, и в каждом из них есть user.name. Напишите код, который преобразует их в массив имён.
+
+// let vasya = { name: 'Вася', age: 25 };
+// let petya = { name: 'Петя', age: 30 };
+// let masha = { name: 'Маша', age: 28 };
+
+// let users = [vasya, petya, masha];
+
+// let names = users.map(item => item.name);
+
+// console.log(names); // Вася, Петя, Маша
+
+// У вас есть массив объектов user, и у каждого из объектов есть name, surname и id.
+
+// Напишите код, который создаст ещё один массив объектов с параметрами id и fullName, где fullName – состоит из name и surname.
+
+// let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
+// let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
+// let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
+
+// let users = [vasya, petya, masha];
+
+// let usersMapped = users.map((item) => ({
+//   fullName: `${item.name} ${item.surname}`,
+//   id: item.id,
+// }));
+
+// // usersMapped = [
+// //   { fullName: "Вася Пупкин", id: 1 },
+// //   { fullName: "Петя Иванов", id: 2 },
+// //   { fullName: "Маша Петрова", id: 3 }
+// // ]
+
+// console.log( usersMapped[0].id ) // 1
+// console.log( usersMapped[0].fullName ) // Вася Пупкин
+// Итак, на самом деле вам нужно трансформировать один массив объектов в другой.
+// Попробуйте использовать =>. Это небольшая уловка.

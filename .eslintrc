@@ -2,15 +2,19 @@
   "env": {
     "es2020": true
   },
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "airbnb",
-    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
 //    "plugin:react/recommended",
 //    "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended"
   ],
   "plugins": [
-    "prettier"
+    "prettier",
+    "@typescript-eslint"
 //    "react"
   ],
   "rules": {
@@ -55,7 +59,7 @@
 //    "react-hooks/rules-of-hooks":           "error",
 //    "react-hooks/exhaustive-deps":          "warn"
   },
-  "parser": "babel-eslint",
+//  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
