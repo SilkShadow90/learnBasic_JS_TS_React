@@ -1,187 +1,173 @@
-/*
-  alert('Я JavaScript');
+// alert('Я JavaScript');
 
-  let admin ;
-  let name ;
-  name = 'Джон'
-  admin = name;
+// let admin ;
+// let name ;
+// name = 'Джон'
+// admin = name;
 
-  alert (admin)
+// alert (admin)
 
-  let planetName = 'Земля';
-  const userName = 'Авель';
+// let planetName = 'Земля';
+// const userName = 'Авель';
+// alert(planetName);
+// alert(userName);
 
-  alert(planetName);
-  alert(userName);
+// const planetName = 'wqewq';
 
+// const planet = {
+//   name: 'qwe',
+//   size: 3243,
+//   getSize: () => this.size,
+// };
 
-const planetName = 'wqewq';
-
-const planet = {
-  name: 'qwe',
-  size: 3243,
-  getSize: () => this.size,
-};
-
-const name = prompt('Как тебя зовут?');
+// const name = prompt('Как тебя зовут?');
 
 // let a;
 
 // let b = alert('wqe');
 
-// // alert(name);
-function getSum(a, b) {
-  if (typeof a === 'string') {
-    return 'Хуйня';
-  }
+// alert(name);
+// function getSum(a, b) {
+//   if (typeof a === 'string') {
+//     return 'Хуйня';
+//   }
 
-  return a + b;
+//   return a + b;
 
-  // fsdjkfhsdkfhe
-}
+//   // fsdjkfhsdkfhe
+// }
 
-const summaBabla = getSum(+name, 200);
+// const summaBabla = getSum(+name, 200);
 
-alert(summaBabla);
+// alert(summaBabla);
 
-let a = 1, b = 1;
+// let a = 1, b = 1;
 
-let c = ++a;
-let d = b++;
+// let c = ++a;
+// let d = b++;
 
-a = 1, правильно 2
-b = 1, правильно 2
-c = 2
-d = 1 
+// a = 1, правильно 2
+// b = 1, правильно 2
+// c = 2
+// d = 1
 
-let a = 2
-let x = 1 + (a *= 2) // x = 5
+// let a = 2
+// let x = 1 + (a *= 2) // x = 5
 
-"" + 1 + 0 // 1 , правильно "10"
-"" - 1 + 0 // -1
-true + false // 1
-6 / "3" // 2
-"2" * "3" // 6
-4 + 5 + "px" // NaN , правильно "9px"
-"$" + 4 + 5 // NaN , , правильно "$45"
-"4" - 2 // 2
-"4px" - 2 // NaN
-7 / 0 // NaN , Infinity
-"  -9  " + 5 // -4 , правильно "  -9  5"
-"  -9  " - 5 // -14
-null + 1 //  1
-undefined + 1 // NaN
-" \t \n" - 2 // NaN , правильно -2
-*/
+// "" + 1 + 0 // 1 , правильно "10"
+// "" - 1 + 0 // -1
+// true + false // 1
+// 6 / "3" // 2
+// "2" * "3" // 6
+// 4 + 5 + "px" // NaN , правильно "9px"
+// "$" + 4 + 5 // NaN , , правильно "$45"
+// "4" - 2 // 2
+// "4px" - 2 // NaN
+// 7 / 0 // NaN , Infinity
+// "  -9  " + 5 // -4 , правильно "  -9  5"
+// "  -9  " - 5 // -14
+// null + 1 //  1
+// undefined + 1 // NaN
+// " \t \n" - 2 // NaN , правильно -2
 
-/* let a = promt('первое число');
-let b = promt('второе число');
+// let a = promt('первое число');
+// let b = promt('второе число');
 
-alert(+a + +b);
-*/
-/* 5 > 4 // true
-"ананас" > "яблоко" // false
-"2" > "12" // true
-undefined == null // true
-undefined === null // false
-null == "\n0\n" // не понимаю, правильно false
-null === +"\n0\n" // не понимаю, правильно false
-*/
+// alert(+a + +b);
 
-/* if ("0") {
-  alert( 'Привет' ); // нет, правильно да, не увидел что это строка
-} */
+// 5 > 4 // true
+// "ананас" > "яблоко" // false
+// "2" > "12" // true
+// undefined == null // true
+// undefined === null // false
+// null == "\n0\n" // не понимаю, правильно false
+// null === +"\n0\n" // не понимаю, правильно false
 
-/* let languagename = prompt('Какое «официальное» название JavaScript?');
+// if ("0") {
+//   alert( 'Привет' ); // нет, правильно да, не увидел что это строка
+// }
 
-if (languagename == 'ECMAScript) {
-  alert('Верно');
-} else {
-  alert('Не знаете? ECMAScript!');
-} 
-*/
+// let languagename = prompt('Какое «официальное» название JavaScript?');
 
-/* let number = prompt('Введите число');
+// if (languagename == 'ECMAScript) {
+//   alert('Верно');
+// } else {
+//   alert('Не знаете? ECMAScript!');
+// }
 
-if (number > 0) {
-  number = '1';
-} else if (number < 0) {
-  number = '-1';
-} else if (number == 0) {
-  number = '0';
-}
-alert(number);
-*/
+// let number = prompt('Введите число');
 
-/* let result = a + b < 4 ? 'Мало' : 'Много';
- */
+// if (number > 0) {
+//   number = '1';
+// } else if (number < 0) {
+//   number = '-1';
+// } else if (number == 0) {
+//   number = '0';
+// }
+// alert(number);
 
-/* let login = prompt('Введите логин');
+// let result = a + b < 4 ? 'Мало' : 'Много';
 
-let message = (login == 'Сотрудник') ? 'Привет' :
-  (login == 'Директор') ? 'Здравствуйте' :
-  (login == '') ? 'Нет логина' :
-   '';
+// let login = prompt('Введите логин');
 
-  alert( message ); что ему не нравится??? 
-Почему после решения проблемы, код перестаёт работать???
-*/
+// let message = (login == 'Сотрудник') ? 'Привет' :
+//   (login == 'Директор') ? 'Здравствуйте' :
+//   (login == '') ? 'Нет логина' :
+//    '';
 
-/* alert( null || 2 || undefined ); // 2
+//   alert( message ); что ему не нравится???
+// Почему после решения проблемы, код перестаёт работать???
 
-alert( alert(1) || 2 || alert(3) ); // 1, правильно сначала 1, затем 2.
+// alert( null || 2 || undefined ); // 2
 
-alert( 1 && null && 2 ); // null
+// alert( alert(1) || 2 || alert(3) ); // 1, правильно сначала 1, затем 2.
 
-alert( alert(1) && alert(2) ); // undefined, правильно сначала 1, затем undefined
+// alert( 1 && null && 2 ); // null
 
-alert( null || 2 && 3 || 4 ); // сначала проверит 2 && 3, получит 3, далее null || 3 || 4, выведет null, правильно 3
-*/
+// alert( alert(1) && alert(2) ); // undefined, правильно сначала 1, затем undefined
 
-/* if (age >= 14 && age <= 90)
+// alert( null || 2 && 3 || 4 ); // сначала проверит 2 && 3, получит 3, далее null || 3 || 4, выведет null, правильно 3
 
-if (!(age >= 14) && !(age <= 90))
+// if (age >= 14 && age <= 90)
 
-if (age < 14 || age > 90)
-*/
+// if (!(age >= 14) && !(age <= 90))
 
-/* let age = prompt('Введите число');
+// if (age < 14 || age > 90)
 
-if (age >= 14 && age <= 90) {
- age = 'Правильно';
-} else if (age <= 14 || age >= 90) {
- age = 'Неправильно!';
-} 
-alert(age);  
-*/
+// let age = prompt('Введите число');
 
-/* const user = {
-  name: 'Avel',
-  age: 30,
-  getAge() {
-    return this.age;
-  },
-};
-const age = user.getAge();
+// if (age >= 14 && age <= 90) {
+//  age = 'Правильно';
+// } else if (age <= 14 || age >= 90) {
+//  age = 'Неправильно!';
+// }
+// alert(age);
 
-alert(age);
-*/
+// const user = {
+//   name: 'Avel',
+//   age: 30,
+//   getAge() {
+//     return this.age;
+//   },
+// };
+// const age = user.getAge();
 
-/* const user = {
-  name: 'Avel',
-  age: 30,
-  getAge() {
-    return this.age;
-  },
-};
-const age = {
-  name: 'Misha',
-  age: 26,
-  getAge() {
-    return this.age;
-  },
-};
-*/
+// alert(age);
+
+// const user = {
+//   name: 'Avel',
+//   age: 30,
+//   getAge() {
+//     return this.age;
+//   },
+// };
+// const age = {
+//   name: 'Misha',
+//   age: 26,
+//   getAge() {
+//     return this.age;
+//   },
+// };
 
 // const login =  ('Кто там?');
 // const admin = 'admin';
@@ -448,8 +434,8 @@ function getIsSimple(a) {
 // console.log(isEqualCar(carA, carB));
 
 // function isEmpty(obj) {
-//   // for (const key in obj) {
-//   //   return false;
+// for (const key in obj) {
+//   return false;
 //   // }
 //   // return true;
 //   return Boolean(Object.keys(obj).length);
@@ -676,7 +662,7 @@ function getIsSimple(a) {
 // console.log (truncate('Всем привет!', 20))
 
 function extractCurrencyValue(str) {
-  str1 = str
+  str1 = str;
   return +str1.slice(1);
-};
+}
 alert(extractCurrencyValue('$120') === 120);
