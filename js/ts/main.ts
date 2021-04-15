@@ -149,10 +149,21 @@
 
 // Напишите функцию, которая принимает строку из чисел и возвращает строку с максимальным и минимальным числами из начальной строки
 
-highAndLow(str){
-  
+function highAndLow(str){
+  function goodsort(a, b) {
+    return a - b;
+  }
+
+  let arr = str.split(' ').map((value) => +value).sort(goodsort);
+  console.log(arr);
+
+  let first = arr.slice(-1);
+  let last = arr.slice(0,1);
+
+  return first.concat(last).join(' ');
 }
-highAndLow("1 2 3 4 5");  // return "5 1"
-highAndLow("1 2 -3 4 5"); // return "5 -3"
-highAndLow("1 9 3 4 -5"); // return "9 -5"
-highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6");
+console.log(highAndLow("1 2 3 4 5"));  // return "5 1"
+console.log(highAndLow("1 2 -3 4 5")); // return "5 -3"
+console.log(highAndLow("1 9 3 4 -5")); // return "9 -5"
+console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+// console.log(highAndLow(prompt ('Введите несколько чисел через пробел')));
