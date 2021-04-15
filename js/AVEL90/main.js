@@ -14,7 +14,6 @@
   alert(planetName);
   alert(userName);
 
-
 const planetName = 'wqewq';
 
 const planet = {
@@ -52,7 +51,7 @@ let d = b++;
 a = 1, правильно 2
 b = 1, правильно 2
 c = 2
-d = 1 
+d = 1
 
 let a = 2
 let x = 1 + (a *= 2) // x = 5
@@ -98,7 +97,8 @@ if (languagename == 'ECMAScript) {
   alert('Верно');
 } else {
   alert('Не знаете? ECMAScript!');
-} 
+}
+
 */
 
 /* let number = prompt('Введите число');
@@ -123,7 +123,7 @@ let message = (login == 'Сотрудник') ? 'Привет' :
   (login == '') ? 'Нет логина' :
    '';
 
-  alert( message ); что ему не нравится??? 
+  alert( message ); что ему не нравится???
 Почему после решения проблемы, код перестаёт работать???
 */
 
@@ -151,8 +151,8 @@ if (age >= 14 && age <= 90) {
  age = 'Правильно';
 } else if (age <= 14 || age >= 90) {
  age = 'Неправильно!';
-} 
-alert(age);  
+}
+alert(age);
 */
 
 /* const user = {
@@ -282,7 +282,7 @@ const age = {
     }
   }
   return array;
-} 
+}
 
 function getIsSimple(a) {
   let isSimple = true;
@@ -420,7 +420,7 @@ function getIsSimple(a) {
 //   // превращение обекта в массив
 //   const keysList = Object.keys(car1);
 
-//   // Object.keys(obj) = key[]] | Object.values(obj) - value[]] | Object.entries(obj) = [key, value][]
+// Object.keys(obj) = key[]] | Object.values(obj) - value[]] | Object.entries(obj) = [key, value][]
 
 //   const isLenghtEqual = keysList.length === Object.keys(car2).length;
 
@@ -701,7 +701,8 @@ function getIsSimple(a) {
 
 //  Создайте массив styles с элементами «Джаз» и «Блюз».
 //  Добавьте «Рок-н-ролл» в конец.
-//  Замените значение в середине на «Классика». Ваш код для поиска значения в середине должен работать для массивов с любой длиной.
+//  Замените значение в середине на «Классика». 
+//  Ваш код для поиска значения в середине должен работать для массивов с любой длиной.
 //  Удалите первый элемент массива и покажите его.
 //  Вставьте «Рэп» и «Регги» в начало массива.
 
@@ -725,7 +726,8 @@ function getIsSimple(a) {
 // Напишите функцию sumInput(), которая:
 
 // Просит пользователя ввести значения, используя prompt и сохраняет их в массив.
-// Заканчивает запрашивать значения, когда пользователь введёт не числовое значение, пустую строку или нажмёт «Отмена».
+// Заканчивает запрашивать значения, когда пользователь введёт не числовое значение,
+// пустую строку или нажмёт «Отмена».
 // Подсчитывает и возвращает сумму элементов массива.
 // P.S. Ноль 0 – считается числом, не останавливайте ввод значений при вводе «0».
 
@@ -747,13 +749,15 @@ function getIsSimple(a) {
 
 // alert(sumInput());
 
-// Напишите функцию camelize(str), которая преобразует строки вида «my-short-string» в «myShortString».
+// Напишите функцию camelize(str),
+// которая преобразует строки вида «my-short-string» в «myShortString».
 
 // То есть дефисы удаляются, а все слова после них получают заглавную букву.
 
 // Примеры:
 
-// P.S. Подсказка: используйте split, чтобы разбить строку на массив символов, потом переделайте всё как нужно и методом join соедините обратно.
+// P.S. Подсказка: используйте split, чтобы разбить строку на массив символов,
+//  потом переделайте всё как нужно и методом join соедините обратно.
 // /**
 //  * @name camelize
 //  * @param {string} str
@@ -836,7 +840,7 @@ function getIsSimple(a) {
 
 // const arr = [5, 2, 1, -10, 8];
 
-// arr.sort((a, b) => {return b - a});
+// arr.sort((a, b) => b - a);
 
 // console.log(arr); // 8, 5, 2, 1, -10
 
@@ -871,23 +875,24 @@ function getIsSimple(a) {
 
 // Напишите код, который создаст ещё один массив объектов с параметрами id и fullName, где fullName – состоит из name и surname.
 
-let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
-let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
-let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
+// let vasya = { name: 'Вася', surname: 'Пупкин', id: 1 };
+// let petya = { name: 'Петя', surname: 'Иванов', id: 2 };
+// let masha = { name: 'Маша', surname: 'Петрова', id: 3 };
 
-let users = [vasya, petya, masha];
+// let users = [vasya, petya, masha];
 
-let usersMapped = users.map((item) => {
-  fullName = item.name + item.surname;
-});
+// let usersMapped = users.map((item) => ({
+//   fullName: `${item.name} ${item.surname}`,
+//   id: item.id,
+// }));
 
-// usersMapped = [
-//   { fullName: "Вася Пупкин", id: 1 },
-//   { fullName: "Петя Иванов", id: 2 },
-//   { fullName: "Маша Петрова", id: 3 }
-// ]
+// // usersMapped = [
+// //   { fullName: "Вася Пупкин", id: 1 },
+// //   { fullName: "Петя Иванов", id: 2 },
+// //   { fullName: "Маша Петрова", id: 3 }
+// // ]
 
-
-console.log( usersMapped[0].id ) // 1
-console.log( usersMapped[0].fullName ) // Вася Пупкин
-// Итак, на самом деле вам нужно трансформировать один массив объектов в другой. Попробуйте использовать =>. Это небольшая уловка.
+// console.log( usersMapped[0].id ) // 1
+// console.log( usersMapped[0].fullName ) // Вася Пупкин
+// Итак, на самом деле вам нужно трансформировать один массив объектов в другой.
+// Попробуйте использовать =>. Это небольшая уловка.
