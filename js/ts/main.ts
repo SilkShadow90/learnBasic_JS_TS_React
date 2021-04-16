@@ -149,21 +149,84 @@
 
 // Напишите функцию, которая принимает строку из чисел и возвращает строку с максимальным и минимальным числами из начальной строки
 
-function highAndLow(str){
-  function goodsort(a, b) {
-    return a - b;
-  }
+// function highAndLow(str){
+//   function goodsort(a, b) {
+//     return a - b;
+//   }
 
-  let arr = str.split(' ').map((value) => +value).sort(goodsort);
-  console.log(arr);
+//   let arr = str.split(' ').map((value) => +value).sort(goodsort);
+//   console.log(arr);
 
-  let first = arr.slice(-1);
-  let last = arr.slice(0,1);
+//   let first = arr.slice(-1);
+//   let last = arr.slice(0,1);
 
-  return first.concat(last).join(' ');
+//   return first.concat(last).join(' ');
+// }
+// console.log(highAndLow("1 2 3 4 5"));  // return "5 1"
+// console.log(highAndLow("1 2 -3 4 5")); // return "5 -3"
+// console.log(highAndLow("1 9 3 4 -5")); // return "9 -5"
+// console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
+// // console.log(highAndLow(prompt ('Введите несколько чисел через пробел')));
+
+// Напишите функцию sortByAge(users), которая принимает массив объектов со свойством age и сортирует их по нему.
+
+interface IUser {
+  name: string;
+  age: number;
 }
-console.log(highAndLow("1 2 3 4 5"));  // return "5 1"
-console.log(highAndLow("1 2 -3 4 5")); // return "5 -3"
-console.log(highAndLow("1 9 3 4 -5")); // return "9 -5"
-console.log(highAndLow("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"));
-// console.log(highAndLow(prompt ('Введите несколько чисел через пробел')));
+
+// let vasya: IUser = { name: "Вася", age: 25 };
+// let petya: IUser = { name: "Петя", age: 30 };
+// let masha: IUser = { name: "Маша", age: 28 };
+
+// let arr: IUser[] = [ vasya, petya, masha ];
+
+// function sortByAge(arr: IUser[]): IUser[] {
+//   return arr.sort((a, b) => a.age - b.age);
+// };
+
+// sortByAge(arr);
+
+// // теперь: [vasya, masha, petya]
+// console.log(arr[0].name); // Вася
+// console.log(arr[1].name); // Маша
+// console.log(arr[2].name); // Петя
+
+// Напишите функцию getAverageAge(users), которая принимает массив объектов со свойством age и возвращает средний возраст.
+
+// Формула вычисления среднего арифметического значения: (age1 + age2 + ... + ageN) / N.
+
+// let vasya: IUser = { name: "Вася", age: 25 };
+// let petya: IUser = { name: "Петя", age: 30 };
+// let masha: IUser = { name: "Маша", age: 29 };
+
+// let arr: IUser[] = [ vasya, petya, masha ];
+
+// function getAverageAge(arr: IUser[]): number {
+//   return arr.reduce((acc, user) => acc + user.age, 0) / arr.length;
+// }
+
+// console.log(getAverageAge(arr)); // (25 + 30 + 29) / 3 = 28
+
+// Пусть arr – массив строк.
+
+// Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
+
+function unique(arr: string[]): string[] {
+  return arr.reduce(
+    (acc: Array<string>, value: string) => {
+      if (!acc.includes(value)) {
+        acc.push(value);
+      }
+
+      return acc;
+    },
+    [],
+  );
+}
+
+let strings = ["кришна", "кришна", "харе", "харе",
+  "харе", "харе", "кришна", "кришна", ":-O"
+];
+
+console.log( unique(strings) ); // кришна, харе, :-O
