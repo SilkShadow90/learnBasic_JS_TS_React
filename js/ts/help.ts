@@ -114,7 +114,7 @@ function sortDate(arr: IDateObject[]): ISortedDateObject {
     .map((item: IDateObject) => item.date.split('-'))
     .sort(sortLeveling)
     .reduce((acc: ISortedDateObject, item: string[]) => {
-      // для нужного отображения костылек в виде прозрачного символа \u0000
+      // для нужного отображения костылек в виде пустого символа \u0000
       const objectKey: string = secretKeyToVictory + item[0];
 
       if (!acc[objectKey]) {

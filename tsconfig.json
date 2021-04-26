@@ -2,10 +2,12 @@
 // assuming your ts sources are in ./src/
 {
   "compilerOptions": {
-    "baseUrl": "./js/ts",
+    "baseUrl": ".",
     "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "paths": {
-      "~*": ["./*"]
+      "*": ["*", "generated/*"]
     }
   },
   "include": [

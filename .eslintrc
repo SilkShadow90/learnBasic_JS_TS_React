@@ -18,6 +18,13 @@
 //    "react"
   ],
   "rules": {
+    "lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
     "no-shadow": "off",
     "max-len": ["warn", 140],
     "no-alert":"off",
