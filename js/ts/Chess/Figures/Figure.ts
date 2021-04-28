@@ -1,19 +1,36 @@
-import { THorizontal, TVertical } from '../interfaces';
+import { THorizontal, TVertical, TColor } from '../interfaces';
 
 export interface IFigureDeps {
-  color: 'white' | 'black';
+  color: TColor;
   startPosition: [THorizontal, TVertical];
   position?: [THorizontal, TVertical];
 }
 
-export default class Figure {
-  color: 'white' | 'black';
+export default abstract class Figure {
+  public readonly color: 'white' | 'black';
+  protected readonly startPosition: [THorizontal, TVertical];
+  private position: [THorizontal, TVertical];
 
-  startPosition: [THorizontal, TVertical];
+  public readonly abstract figureName: string;
+  public readonly abstract getNextPositionMap: () => Array<[THorizontal, TVertical]>;
 
-  position: [THorizontal, TVertical];
+  public setPosition(position: [THorizontal, TVertical]): void {
+    const availablePositions: Array<[THorizontal, TVertical]> = this.getNextPositionMap();
 
-  constructor(deps: IFigureDeps) {
+    const availablePosition: [THorizontal, TVertical] = availablePositions.find(
+      ([horizontal, vertical]) => position[0] === horizontal && position[1] === vertical,
+    );
+
+    if (availablePosition) {
+      this.position = availablePosition;
+    }
+  }
+
+  public getPosition(): [THorizontal, TVertical] {
+    return this.position;
+  }
+
+  protected constructor(deps: IFigureDeps) {
     this.color = deps.color;
     this.startPosition = deps.startPosition;
     this.position = deps.position ?? deps.startPosition;
