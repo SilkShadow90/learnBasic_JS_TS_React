@@ -212,21 +212,195 @@ interface IUser {
 
 // Напишите функцию unique(arr), которая возвращает массив, содержащий только уникальные элементы arr.
 
-function unique(arr: string[]): string[] {
-  return arr.reduce(
-    (acc: Array<string>, value: string) => {
-      if (!acc.includes(value)) {
-        acc.push(value);
-      }
+// function unique(arr: string[]): string[] {
+//   return arr.reduce(
+//     (acc: Array<string>, value: string) => {
+//       if (!acc.includes(value)) {
+//         acc.push(value);
+//       }
 
-      return acc;
-    },
-    [],
-  );
-}
+//       return acc;
+//     },
+//     [],
+//   );
+// }
 
-let strings = ["кришна", "кришна", "харе", "харе",
-  "харе", "харе", "кришна", "кришна", ":-O"
-];
+// let strings = ["кришна", "кришна", "харе", "харе",
+//   "харе", "харе", "кришна", "кришна", ":-O"
+// ];
 
-console.log( unique(strings) ); // кришна, харе, :-O
+// console.log( unique(strings) ); // кришна, харе, :-O
+
+// Напишите функцию shuffle(array), которая перемешивает (переупорядочивает случайным образом) элементы массива.
+
+// Многократные прогоны через shuffle могут привести к разным последовательностям элементов. Например:
+
+// let arr = [1, 2, 3];
+
+// function shuffle(arr: any[]): void {
+//   arr.sort(() => Math.random() - 0.5);
+// }
+
+// shuffle(arr);
+// console.log(arr);
+// // arr = [3, 2, 1]
+
+// shuffle(arr);
+// // arr = [2, 1, 3]
+
+// shuffle(arr);
+// // arr = [3, 1, 2]
+// // ...
+// // Все последовательности элементов должны иметь одинаковую вероятность.
+// // Например, [1,2,3] может быть переупорядочено как [1,2,3] или [1,3,2], или [3,1,2] и т.д., с равной вероятностью каждого случая.
+
+// В коде ниже класс Rabbit наследует Animal.
+
+// К сожалению, объект класса Rabbit не создаётся. Что не так? Исправьте ошибку.
+
+// class Animal {
+
+//   constructor(name) {
+//     this.name = name;
+//   }
+
+// }
+
+// class Rabbit extends Animal {
+//   constructor(name) {
+//     super(name);
+//     this.created = Date.now();
+//   }
+// }
+
+// let rabbit = new Rabbit("Белый кролик"); // Error: this is not defined
+// alert(rabbit.name);
+
+// Класс Clock написан в функциональном стиле. Перепишите его, используя современный синтаксис классов.
+
+// class Clock {
+
+//   readonly template: string;
+
+//   constructor({ template }) {
+//     this.template = template;
+//   }
+
+//   timer: number;
+
+//   render() {
+//     let date = new Date();
+
+//     let hours = String(date.getHours());
+//     if (hours.length < 2) {
+//       hours = '0' + hours;
+//     }
+
+//     let mins = String(date.getMinutes());
+//     if (mins.length < 2) {
+//       mins = '0' + mins;
+//     }
+
+//     let secs = String(date.getSeconds());
+//     if (secs.length < 2) {
+//       secs = '0' + secs;
+//     }
+
+//     let output = this.template
+//       .replace('h', hours)
+//       .replace('m', mins)
+//       .replace('s', secs);
+
+//     console.log(output);
+//   }
+
+//   stop() {
+//     clearInterval(this.timer);
+//   }
+
+//   start() {
+//     this.render();
+//     this.timer = setInterval(this.render.bind(this), 1000);
+//   }
+// }
+
+// class ExtendedClock extends Clock {
+//   readonly precision: number;
+
+//   constructor({ template, precision = 1000 }) {
+//     super({ template })
+//     this.precision = precision;
+//   }
+
+//   start() {
+//     this.render();
+//     this.timer = setInterval(this.render.bind(this), this.precision);
+//   }
+// }
+
+// const clock = new ExtendedClock({ template: 'h:m:s', precision: undefined });
+// clock.start();
+
+// class Rabbit extends Object {
+//   constructor(name) {
+//     super();
+//     super.name = name;
+//   }
+// }
+
+// let rabbit = new Rabbit('Кроль');
+
+// console.log(rabbit.hasOwnProperty('name')); // Ошибка
+
+// Напишите функцию sumTo(n), которая вычисляет сумму чисел 1 + 2 + ... + n.
+
+// Сделайте три варианта решения:
+
+// С использованием цикла.
+// Через рекурсию, т.к. sumTo(n) = n + sumTo(n-1) for n > 1.
+// С использованием формулы арифметической прогрессии.
+// Пример работы вашей функции:
+
+// function sumTo(n) {
+//   let sum = n;
+//   for(let i = 0;i < n; i++) {
+//     sum += i;  
+//   }
+//   return sum;
+//  };
+
+// function sumTo(n) {
+//   let sum = n
+//   if (n == 1) {
+//     return sum;
+//   } 
+//   return n + sumTo(n - 1);
+// };
+
+// function sumTo(n) {
+//   let arr = new Array(n).fill(1).reduce((acc, _, index) => acc + index, n);
+//   return arr;
+// }
+ 
+// console.log(sumTo(100)); // 5050
+
+// Напишите функцию, которая найдет все наборы анаграмм в строке
+// Анаграммы – это слова, у которых те же буквы в том же количестве, но они располагаются в другом порядке (рост-сорт-торс).
+
+// результат - [«мир-рим", "карп-парк", "кума-мука", "куст-стук", "адрес-среда", "рост-сорт-трос"]
+
+const str = 'адрес карп кума куст мир мука парк рим среда стук рост сорт трос';
+
+function anagram(str) {
+  const arr = str.slice()
+  .split(' ')
+  .map((item) => item.split(''));
+
+  arr.reduce((acc) => {
+
+  })
+  
+  return arr;
+} 
+  
+console.log(anagram(str));
