@@ -210,24 +210,25 @@ function highAndLow3(str: string): string {
   // третий вариант - самый оптимизированный - самый трудночитаемый
   return str
     .split(' ')
-    .reduce(((acc: [number, number], value: string) => {
+    .reduce((([min, max]: [number, number], value: string) => {
+      const newAcc: [number, number] = [min, max];
       const number = Number(value);
 
       switch (true) {
         case isNaN(number):
           break;
-        case !acc.length:
+        case !newAcc.length:
           return [number, number];
-        case number < acc[0]:
-          acc[0] = number;
+        case number < min:
+          newAcc[0] = number;
           break;
-        case number > acc[1]:
-          acc[1] = number;
+        case number > max:
+          newAcc[1] = number;
           break;
         default:
       }
 
-      return acc;
+      return newAcc;
     }), [])
     .join(' ');
 }
