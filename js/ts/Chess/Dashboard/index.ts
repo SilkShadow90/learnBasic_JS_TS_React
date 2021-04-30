@@ -13,6 +13,9 @@ export default class Dashboard {
     return chessNode;
   }
 
+  // todo add static method createFiguresInStartPositions(): void {  }
+  // todo add static method isDashboardCompleted(): boolean {  }
+
   public static init(): void {
     Dashboard.clear();
 

@@ -11,11 +11,20 @@ export default abstract class Figure {
   protected readonly startPosition: [THorizontal, TVertical];
   private position: [THorizontal, TVertical];
 
+  // todo add figure names list
   public readonly abstract figureName: string;
   public readonly abstract getNextPositionMap: () => Array<[THorizontal, TVertical]>;
 
-  public setPosition(position: [THorizontal, TVertical]): void {
+  // todo add method isFigureDoNotMove(): boolean {  }
+  // todo add method isFigureLocked(): boolean {  }
+
+  public setPosition(position: [THorizontal, TVertical], isForce?: boolean): void {
     const availablePositions: Array<[THorizontal, TVertical]> = this.getNextPositionMap();
+
+    if (isForce) {
+      this.position = position;
+      return;
+    }
 
     const availablePosition: [THorizontal, TVertical] = availablePositions.find(
       ([horizontal, vertical]) => position[0] === horizontal && position[1] === vertical,
