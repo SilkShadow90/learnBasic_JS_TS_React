@@ -9,11 +9,17 @@ export interface IFigureDeps {
 export default abstract class Figure {
   public readonly color: 'white' | 'black';
   protected readonly startPosition: [THorizontal, TVertical];
-  private position: [THorizontal, TVertical];
+  protected position: [THorizontal, TVertical];
 
   // todo add figure names list
   public readonly abstract figureName: string;
   public readonly abstract getNextPositionMap: () => Array<[THorizontal, TVertical]>;
+
+  protected constructor(deps: IFigureDeps) {
+    this.color = deps.color;
+    this.startPosition = deps.startPosition;
+    this.position = deps.position ?? deps.startPosition;
+  }
 
   // todo add method isFigureDoNotMove(): boolean {  }
   // todo add method isFigureLocked(): boolean {  }
@@ -39,9 +45,7 @@ export default abstract class Figure {
     return this.position;
   }
 
-  protected constructor(deps: IFigureDeps) {
-    this.color = deps.color;
-    this.startPosition = deps.startPosition;
-    this.position = deps.position ?? deps.startPosition;
+  public toSting(): string {
+    return `${this.color}-${this.figureName}-${this.position.join('')}`;
   }
 }
