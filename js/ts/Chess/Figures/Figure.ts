@@ -13,9 +13,10 @@ export default abstract class Figure {
 
   // todo add figure names list
   public readonly abstract figureName: string;
-  public readonly abstract getNextPositionMap: () => Array<[THorizontal, TVertical]>;
+  protected readonly abstract getNextPositionMap: () => Array<[THorizontal, TVertical]>;
+  public readonly abstract render: () => HTMLElement;
 
-  protected constructor(deps: IFigureDeps) {
+  constructor(deps: IFigureDeps) {
     this.color = deps.color;
     this.startPosition = deps.startPosition;
     this.position = deps.position ?? deps.startPosition;
