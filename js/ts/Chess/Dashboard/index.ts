@@ -1,6 +1,6 @@
 import { charList, numList } from '../tools/index';
-import Pawn from '../Figures/Pawn';
 import Rules, { TFiguresPositionMap } from '../Rules/index';
+import Figure from '../Figures/figure';
 
 export default class Dashboard {
   private static readonly id: string = 'dashboard';
@@ -24,23 +24,19 @@ export default class Dashboard {
   }
 
   private static createFiguresInStartPositions(): void {
-    // const chessNode: HTMLElement = Dashboard.getChessNode();
-    // console.log(chessNode);
-
-    // const qwe = new Pawn({ color: 'white', startPosition: ['A', 2] });
     const startFiguresPositionMap: TFiguresPositionMap = Rules.startFiguresPositionMap();
 
-    startFiguresPositionMap.Pawn.forEach((value) => {
-      const pawnNode = document.getElementById(value.getPosition().join(''));
-      const pawn = document.createElement('div');
+    Object.entries(startFiguresPositionMap).forEach(([key, value]) => {
+      value.forEach((element: Figure) => {
+        const figureNode = document.getElementById(element.getPosition().join(''));
+        const figure = document.createElement('div');
 
-      // const pawn = new Pawn('white')
+        figure.style.height = '50px';
+        figure.style.width = '50px';
+        figure.style.backgroundColor = element.color;
 
-      pawn.style.height = '50px';
-      pawn.style.width = '50px';
-      pawn.style.backgroundColor = value.color;
-
-      pawnNode.append(value.render());
+        figureNode.append(element.render.call(element));
+      });
     });
   }
   // todo add static method isDashboardCompleted(): boolean {  }

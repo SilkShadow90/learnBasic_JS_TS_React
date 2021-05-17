@@ -14,7 +14,28 @@ export default abstract class Figure {
   // todo add figure names list
   public readonly abstract figureName: string;
   protected readonly abstract getNextPositionMap: () => Array<[THorizontal, TVertical]>;
-  public readonly abstract render: () => HTMLElement;
+  public abstract readonly render: () => HTMLElement;
+
+  protected readonly prerender = (white: string, black: string): HTMLElement => {
+    const figureNode = document.createElement('img');
+    figureNode.style.zIndex = '1';
+    figureNode.draggable = true;
+    figureNode.ondragstart = () => {
+      const position = this.getPosition();
+      const qwe = document.getElementById(position.join(''));
+      qwe.style.opacity = '0.5';
+    };
+    figureNode.ondragend = () => {
+      const position = this.getPosition();
+      const qwe = document.getElementById(position.join(''));
+      qwe.style.opacity = '1';
+    };
+    figureNode.width = 90;
+    figureNode.height = 90;
+    figureNode.src = this.color === 'white' ? white : black;
+
+    return figureNode;
+  };
 
   constructor(deps: IFigureDeps) {
     this.color = deps.color;
