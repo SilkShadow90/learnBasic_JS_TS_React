@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd /usr/local/Cellar/php@7.2/7.2.34_2 && launchctl load homebrew.mxcl.php@7.2.plist
+nginx
+
+cd www/ulsimba 
+yarn dev
