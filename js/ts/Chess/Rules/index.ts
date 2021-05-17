@@ -1,6 +1,6 @@
 import { TColor, THorizontal, TVertical } from '../interfaces/index';
 import Figure from '../Figures/Figure';
-import { charList } from '../tools/index';
+import { charList, numList } from '../tools/index';
 import Pawn from '../Figures/Pawn';
 
 export type TFiguresPositionMap = Record<'Pawn', Figure[]>
@@ -22,7 +22,7 @@ export default class Rules {
 
   public static startFiguresPositionMap(): TFiguresPositionMap {
     const pawnGenerateProcedure = (): Figure[] => {
-      const vertical: TVertical[] = [2, 7];
+      const vertical: TVertical[] = [2, numList.length - 1 as TVertical];
 
       return new Array(charList.length * 2)
         .fill(null)

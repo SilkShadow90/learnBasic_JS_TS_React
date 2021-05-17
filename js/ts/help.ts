@@ -153,9 +153,9 @@ function getAnagrams(str: string): string[] {
     .sort((a: string, b: string) => a.length - b.length)
     // вариант с map легче читается но перебирает весь массив array.length * array.length раз и требуетя очистка дублей
     // map ~ 1.400ms
-    // .map((value: string, _, array: string[]) => array
-    //   .filter((item: string) => toAlphabet(value) === toAlphabet(item))
-    //   .join('-'))
+    .map((value: string, _, array: string[]) => array
+      .filter((item: string) => toAlphabet(value) === toAlphabet(item))
+      .join('-'))
     // вариант с reduce более оптимизированный так как основной массив перебирается один раз, но сложнее в восприятии
     // reduce ~ 0.850ms
     .reduce((acc: string[], value) => {
@@ -186,7 +186,7 @@ highAndLow("1 9 3 4 -5"); // return "9 -5"
 function highAndLow1(str: string): string {
   // первый вариант - самый простой в исполнении - самый не защищенный
   const numbersArray: Array<string | number> = str
-    .replace(/[^\d\s-]/g, '') // добавление защищенности делает его не таким уж простым))
+    // .replace(/[^\d\s-]/g, '') // добавление защищенности делает его не таким уж простым))
     .split(' ');
 
   const min: number = Math.min(...numbersArray as number[]);
@@ -235,72 +235,3 @@ function highAndLow3(str: string): string {
 console.log(highAndLow1('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
 console.log(highAndLow2('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
 console.log(highAndLow3('4 5 29 54 4 0 -214 542 -64 1 -3 6 -6'));
-
-function calc(expression: string): number {
-  const regexpMath = new RegExp(/[+\-*\d./]/);
-  const regexpFigure = new RegExp(/\(([+-]?[\d.]+)\)/, 'g');
-
-  if (!regexpMath.test(expression)) {
-    return NaN;
-  }
-
-  function calculate(a: string, b: string, op: string): number {
-    switch (op) {
-      case '*':
-        return Number(a) * Number(b);
-      case '+':
-        return Number(a) + Number(b);
-      case '-':
-        return Number(a) - Number(b);
-      case '/':
-        return Number(a) / Number(b);
-      default:
-        return NaN;
-    }
-  }
-
-  function optimize(str: string): string {
-    return str.replace(/\s/g, '')
-      .replace(regexpFigure, '$1')
-      .replace(/--/g, '+')
-      .replace(/\+-/g, '-')
-      .replace(/([*\-/+])\+/g, '$1');
-  }
-
-  function calcByStep(exp: string): string {
-    const optimizeQuery = optimize(exp);
-
-    if (regexpFigure.test(optimizeQuery)) {
-      return calcByStep(optimizeQuery);
-    }
-
-    const matchPriority: string = optimizeQuery.match(/-?[\d.]+[*/]-?[\d.]+/)?.[0] || '';
-    const matchSecondary: string = optimizeQuery.match(/-?[\d.]+[+-]-?[\d.]+/)?.[0] || '';
-    const match: string = matchPriority || matchSecondary || '';
-
-    if (match) {
-      const formatted: string = match.replace(/^(-?[\d.]+)([+\-*/])(-?[\d.]+)$/, '$1|$2|$3');
-      const [a, op, b]: string[] = formatted.split('|');
-
-      return calcByStep(optimizeQuery.replace(match, String(calculate(a, b, op))));
-    }
-
-    return optimizeQuery;
-  }
-
-  return Number(calcByStep(expression));
-}
-
-const calcTests: [string, number][] = [
-  ['1+1', 2],
-  ['1 - 1', 0],
-  ['1* 1', 1],
-  ['1 /1', 1],
-  ['-123', -123],
-  ['123', 123],
-  ['2 /2+3 * 4.75- -6', 21.25],
-  ['12* 123', 1476],
-  ['2 / (2 + 3) * 4.33 - -6', 7.732],
-];
-
-console.log('calc tests: ', calcTests.every(([expression, result]) => calc(expression) === result));
