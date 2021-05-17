@@ -16,7 +16,7 @@ export default class Dashboard {
     chessNode.style.margin = 'auto';
     chessNode.style.flexDirection = 'row';
     chessNode.style.flexWrap = 'wrap';
-    chessNode.style.width = '800px';
+    chessNode.style.width = `${numList.length * 100}px`;
     chessNode.style.backgroundColor = 'green';
     chessNode.id = Dashboard.id;
 
@@ -79,12 +79,92 @@ export default class Dashboard {
         divNode.style.display = 'flex';
         divNode.id = id;
 
-        const textNode = document.createElement('span');
+        function cletka():Record<'justifyContent' | 'alignItems', 'flex-start' | 'flex-end' | 'center'>[] {
+          if (!vertical && !horizontal) {
+            return [{ justifyContent: 'flex-end', alignItems: 'flex-start' }, { justifyContent: 'flex-start', alignItems: 'flex-end' }];
+          }
+          if (!vertical && horizontal === 7) {
+            return [{ justifyContent: 'flex-end', alignItems: 'flex-start' }, { justifyContent: 'flex-end', alignItems: 'flex-start' }];
+          }
+          if (!horizontal && vertical === 7) {
+            return [{ justifyContent: 'flex-start', alignItems: 'flex-end' }, { justifyContent: 'flex-start', alignItems: 'flex-end' }];
+          }
+          if (horizontal === 7 && vertical === 7) {
+            return [{ justifyContent: 'flex-start', alignItems: 'flex-end' }, { justifyContent: 'flex-end', alignItems: 'flex-start' }];
+          }
+        }
 
-        textNode.innerText = id;
-        textNode.style.color = isEven ? 'black' : 'yellow';
+        function ugl(): Record<'justifyContent' | 'alignItems', 'flex-start' | 'flex-end' | 'center'> {
+          if (!vertical) {
+            return { justifyContent: 'flex-end', alignItems: 'flex-start' };
+          }
+          if (vertical === 7) {
+            return { justifyContent: 'flex-start', alignItems: 'flex-end' };
+          }
+          if (!horizontal) {
+            return { justifyContent: 'flex-start', alignItems: 'flex-end' };
+          }
+          if (horizontal === 7) {
+            return { justifyContent: 'flex-end', alignItems: 'flex-start' };
+          }
+          return { justifyContent: 'flex-start', alignItems: 'flex-start' };
+        }
+        const kromka: boolean = !vertical || !horizontal || horizontal === 7 || vertical === 7;
+        const kromkali: boolean = (!vertical && !horizontal)
+        || (!vertical && horizontal === 7)
+        || (!horizontal && vertical === 7)
+        || (horizontal === 7 && vertical === 7);
 
-        // divNode.append(textNode);
+        if (kromka && !kromkali) {
+          const textNode = document.createElement('span');
+          const divvNode = document.createElement('div');
+
+          divvNode.style.height = '100px';
+          divvNode.style.width = '100px';
+          divvNode.style.justifyContent = ugl().justifyContent;
+          divvNode.style.alignItems = ugl().alignItems;
+          divvNode.style.display = 'flex';
+          divvNode.style.position = 'absolute';
+          divvNode.append(textNode);
+
+          textNode.innerText = !vertical || vertical === 7 ? `${charList[horizontal].toLowerCase()}` : `${newNumList[vertical]}`;
+          textNode.style.color = isEven ? 'rgb(174, 137, 104)' : 'rgb(236, 217, 185)';
+
+          divNode.append(divvNode);
+        }
+
+        if (kromkali) {
+          const charNode = document.createElement('span');
+          const numNode = document.createElement('span');
+          const divvNode = document.createElement('div');
+          const divvNode2 = document.createElement('div');
+
+          divvNode.style.height = '100px';
+          divvNode.style.width = '100px';
+          divvNode.style.justifyContent = cletka()[0].justifyContent;
+          divvNode.style.alignItems = cletka()[0].alignItems;
+          divvNode.style.display = 'flex';
+          divvNode.style.position = 'absolute';
+          divvNode.append(charNode);
+
+          divvNode2.style.height = '100px';
+          divvNode2.style.width = '100px';
+          divvNode2.style.justifyContent = cletka()[1].justifyContent;
+          divvNode2.style.alignItems = cletka()[1].alignItems;
+          divvNode2.style.display = 'flex';
+          divvNode2.style.position = 'absolute';
+          divvNode2.append(numNode);
+
+          charNode.innerText = !vertical || vertical === 7 ? `${charList[horizontal].toLowerCase()}` : `${newNumList[vertical]}`;
+          charNode.style.color = isEven ? 'rgb(174, 137, 104)' : 'rgb(236, 217, 185)';
+          charNode.style.marginRight = !vertical && horizontal === 7 ? '8px' : '0';
+          charNode.style.marginLeft = !horizontal && vertical === 7 ? '8px' : '0';
+
+          numNode.innerText = `${newNumList[vertical]}`;
+          numNode.style.color = isEven ? 'rgb(174, 137, 104)' : 'rgb(236, 217, 185)';
+
+          divNode.append(divvNode, divvNode2);
+        }
 
         return divNode;
       });
