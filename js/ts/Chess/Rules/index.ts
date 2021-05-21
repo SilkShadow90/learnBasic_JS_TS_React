@@ -13,6 +13,17 @@ export type TFiguresPositionMap = Record<'Pawn' | 'King' | 'Queen' | 'Bishop' | 
 export default class Rules {
   private static turnColor: TColor = 'white';
 
+  private static generateFigurePositionMap(): Record<string, null> {
+    const map = {};
+    charList.forEach((char:THorizontal) => numList.forEach((num:TVertical) => {
+      map[char + num] = null;
+    }));
+    return map;
+  }
+
+  public static figurePositionsMap: Record<string, null | Figure> = Rules.generateFigurePositionMap();
+
+
   public static getColorTurn(): TColor {
     return Rules.turnColor;
   }

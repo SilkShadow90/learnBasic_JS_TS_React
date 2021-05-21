@@ -28,6 +28,7 @@ export default class Dashboard {
 
     Object.entries(startFiguresPositionMap).forEach(([key, value]) => {
       value.forEach((element: Figure) => {
+        Rules.figurePositionsMap[element.getPosition().join('')] = element;
         const figureNode = document.getElementById(element.getPosition().join(''));
         const figure = document.createElement('div');
 
@@ -168,5 +169,6 @@ export default class Dashboard {
     chessNode.append(...dashboard);
 
     this.createFiguresInStartPositions();
+    console.log(Rules.figurePositionsMap);
   }
 }
