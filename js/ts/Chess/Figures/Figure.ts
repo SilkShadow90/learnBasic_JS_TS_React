@@ -1,4 +1,6 @@
 import { THorizontal, TVertical, TColor } from '../interfaces';
+import Rules from "../Rules/index";
+import Dashboard from "../Dashboard/index";
 
 export interface IFigureDeps {
   color: TColor;
@@ -20,12 +22,21 @@ export default abstract class Figure {
     const figureNode = document.createElement('img');
     figureNode.style.zIndex = '1';
     figureNode.draggable = true;
-    figureNode.ondragstart = () => {
+
+    const availablePositions = this.getNextPositionMap();
+
+    figureNode.ondragstart = (ev) => {
+      Dashboard.renderAvailablePosition(availablePositions);
       const position = this.getPosition();
       const qwe = document.getElementById(position.join(''));
       qwe.style.opacity = '0.5';
+      ev.dataTransfer.setData('text', position.join(''));
     };
+    // figureNode.ondragover = (event) => {
+    //   console.log('figureNode', event);
+    // };
     figureNode.ondragend = () => {
+      Dashboard.clearAvailablePosition(availablePositions);
       const position = this.getPosition();
       const qwe = document.getElementById(position.join(''));
       qwe.style.opacity = '1';

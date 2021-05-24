@@ -23,7 +23,6 @@ export default class Rules {
 
   public static figurePositionsMap: Record<string, null | Figure> = Rules.generateFigurePositionMap();
 
-
   public static getColorTurn(): TColor {
     return Rules.turnColor;
   }
