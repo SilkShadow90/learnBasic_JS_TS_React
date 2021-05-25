@@ -82,14 +82,14 @@ export default class Dashboard {
           // ev.currentTarget.style.background = 'lightyellow';
 
           ev.preventDefault();
-          const data = ev.dataTransfer.getData("text");
+          const data = ev.dataTransfer.getData('text');
           console.log(data);
 
           // ev.target.appendChild(document.getElementById(data));
-        }
+        };
 
         divNode.ondrop = (event) => {
-          console.log("Drop");
+          console.log('Drop');
           const data = event.dataTransfer.getData('text');
           console.log(data);
           console.log(event.target);
