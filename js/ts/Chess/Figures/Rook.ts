@@ -10,10 +10,10 @@ export default class Rook extends Figure {
   figureName = 'Rook';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
     const possiblePositions: Array<[THorizontal, TVertical]> = [];
-    const currentPosition = this.getPosition();
-    const horizontal = numList.filter((value) => value < numList.length + 1).map((value) => [currentPosition[0], value]);
-    const vertical = charList.filter((value) => value).map((value) => [value, currentPosition[1]]);
-    possiblePositions.push(horizontal, vertical);
+    const currentPosition: [THorizontal, TVertical] = this.getPosition();
+    const horizontalMovement: [THorizontal, TVertical] = numList.filter((value) => value < numList.length + 1).map((value) => [currentPosition[0], value]);
+    const verticalMovement = charList.filter((value) => value).map((value) => [value, currentPosition[1]]);
+    possiblePositions.push(horizontalMovement, verticalMovement);
     console.log(possiblePositions);
 
     return possiblePositions;
