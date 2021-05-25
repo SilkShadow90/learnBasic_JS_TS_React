@@ -9,8 +9,8 @@ import { charList } from '../tools';
 export default class King extends Figure {
   figureName = 'King';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
-    const currentPosition = this.getPosition();
-    const arraySearch = charList.indexOf(currentPosition[0], 0);
+    const currentPosition: [THorizontal, TVertical] = this.getPosition();
+    const arraySearch: number = charList.indexOf(currentPosition[0], 0);
     const castling: Array<[THorizontal, TVertical]> = [
       [charList[arraySearch + 2], currentPosition[1]],
       [charList[arraySearch - 2], currentPosition[1]],
