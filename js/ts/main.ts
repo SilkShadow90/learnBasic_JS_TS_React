@@ -169,10 +169,10 @@
 // // console.log(highAndLow(prompt ('Введите несколько чисел через пробел')));
 
 function abbrevName(name: string): string {
-  return name.split(' ').map((value) => value.slice(0 , 1)).join('.').toUpperCase();
+  return name.split(' ').map((value) => value.slice(0, 1)).join('.').toUpperCase();
 }
 
-console.log (abbrevName("Sam Harris");
-console.log (abbrevName("Patrick Feenan"));
-console.log (abbrevName("R Favuzzi"));
-console.log (abbrevName("atrick eenan"))
+console.log(abbrevName('Sam Harris'));
+console.log(abbrevName('Patrick Feenan'));
+console.log(abbrevName('R Favuzzi'));
+console.log(abbrevName('atrick eenan'));
