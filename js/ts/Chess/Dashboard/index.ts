@@ -1,6 +1,7 @@
 import { charList, numList } from '../tools/index';
 import Rules, { TFiguresPositionMap } from '../Rules/index';
 import Figure from '../Figures/figure';
+import { THorizontal, TVertical } from '../interfaces/index';
 
 export default class Dashboard {
   private static readonly id: string = 'dashboard';
@@ -28,6 +29,7 @@ export default class Dashboard {
 
     Object.entries(startFiguresPositionMap).forEach(([key, value]) => {
       value.forEach((element: Figure) => {
+        Rules.figurePositionsMap[element.getPosition().join('')] = element;
         const figureNode = document.getElementById(element.getPosition().join(''));
         const figure = document.createElement('div');
 
@@ -74,6 +76,42 @@ export default class Dashboard {
         divNode.style.alignItems = 'center';
         divNode.style.display = 'flex';
         divNode.id = id;
+
+        divNode.ondragover = (ev) => {
+          // console.log("Drop");
+          // ev.currentTarget.style.background = 'lightyellow';
+
+          ev.preventDefault();
+          const data = ev.dataTransfer.getData("text");
+          console.log(data);
+
+          // ev.target.appendChild(document.getElementById(data));
+        }
+
+        divNode.ondrop = (event) => {
+          console.log("Drop");
+          const data = event.dataTransfer.getData('text');
+          console.log(data);
+          console.log(event.target);
+          // event.target
+          // event.target.appendChild(document.getElementById(data));
+        };
+
+        const kruzok = document.createElement('div');
+        kruzok.classList.add('availablePosition');
+        kruzok.style.height = '40px';
+        kruzok.style.width = '40px';
+        kruzok.style.backgroundColor = 'green';
+        kruzok.style.position = 'absolute';
+        kruzok.style.borderRadius = '20px';
+        kruzok.id = `AP-${id}`;
+        kruzok.hidden = true;
+
+        kruzok.ondrop = (event) => {
+          console.log(event.relatedTarget);
+        };
+
+        divNode.append(kruzok);
 
         function cletka():Record<'justifyContent' | 'alignItems', 'flex-start' | 'flex-end' | 'center'>[] {
           if (!vertical && !horizontal) {
@@ -168,5 +206,20 @@ export default class Dashboard {
     chessNode.append(...dashboard);
 
     this.createFiguresInStartPositions();
+    console.log(Rules.figurePositionsMap);
+  }
+
+  public static clearAvailablePosition(positions: Array<[THorizontal, TVertical]>): void {
+    positions.forEach((position: [THorizontal, TVertical]) => {
+      const positionsNode = document.getElementById(`AP-${position.join('')}`);
+      positionsNode.hidden = true;
+    });
+  }
+
+  public static renderAvailablePosition(positions: Array<[THorizontal, TVertical]>): void {
+    positions.forEach((position: [THorizontal, TVertical]) => {
+      const positionsNode = document.getElementById(`AP-${position.join('')}`);
+      positionsNode.hidden = false;
+    });
   }
 }

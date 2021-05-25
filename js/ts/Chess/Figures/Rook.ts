@@ -4,9 +4,20 @@ import { THorizontal, TVertical } from '../interfaces/index';
 import rookWhite from '../../../../img/rook_white.svg';
 // @ts-ignore
 import rookBlack from '../../../../img/rook_black.svg';
+import { charList, numList } from '../tools';
 
 export default class Rook extends Figure {
   figureName = 'Rook';
-  getNextPositionMap = (): Array<[THorizontal, TVertical]> => [];
+  getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
+    const possiblePositions: Array<[THorizontal, TVertical]> = [];
+    const currentPosition = this.getPosition();
+    const horizontal = numList.filter((value) => value < numList.length + 1).map((value) => [currentPosition[0], value]);
+    const vertical = charList.filter((value) => value).map((value) => [value, currentPosition[1]]);
+    possiblePositions.push(horizontal, vertical);
+    console.log(possiblePositions);
+
+    return possiblePositions;
+  };
+
   render = (): HTMLElement => this.prerender(rookWhite, rookBlack)
 }
