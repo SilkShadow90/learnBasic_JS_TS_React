@@ -4,19 +4,21 @@ import { THorizontal, TVertical } from '../interfaces/index';
 import bishopWhite from '../../../../img/bishop_white.svg';
 // @ts-ignore
 import bishopBlack from '../../../../img/bishop_black.svg';
+import { charList, numList } from '../tools';
 
 export default class Bishop extends Figure {
   figureName = 'Bishop';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
-    const possiblePositions: Array<[THorizontal, TVertical]> = [];
-    const currentPosition = this.getPosition();
-    possiblePositions.push([currentPosition[0], (currentPosition[1] + this.color === 'white' ? 1 : -1) as TVertical]);
+    const [firstName, surName] = this.getPosition();
+    const arraySearch: number = charList.indexOf(firstName, 0);
+    const possiblePositions: Array<[THorizontal, TVertical]> = [
+      [charList[arraySearch + 1], surName + 1 as TVertical],
+      [charList[arraySearch + 1], surName - 1 as TVertical],
+      [charList[arraySearch - 1], surName + 1 as TVertical],
+      [charList[arraySearch - 1], surName - 1 as TVertical],
+    ];
 
-    if (currentPosition === this.startPosition) {
-      possiblePositions.push([currentPosition[0], (currentPosition[1] + this.color === 'white' ? 2 : -2) as TVertical]);
-    }
-
-    return possiblePositions;
+    return possiblePositions.filter(([char, num]) => char && numList.includes(num));
   };
 
   render = (): HTMLElement => this.prerender(bishopWhite, bishopBlack)
