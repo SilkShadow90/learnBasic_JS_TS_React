@@ -9,21 +9,21 @@ import { charList, numList } from '../tools';
 export default class King extends Figure {
   figureName = 'King';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
-    const [firstName, surName] = this.getPosition();
-    const arraySearch: number = charList.indexOf(firstName, 0);
+    const [horizontal, vertical] = this.getPosition();
+    const arraySearch: number = charList.indexOf(horizontal, 0);
     const castling: Array<[THorizontal, TVertical]> = [
-      [charList[arraySearch + 2], surName],
-      [charList[arraySearch - 2], surName],
+      [charList[arraySearch + 2], vertical],
+      [charList[arraySearch - 2], vertical],
     ];
     const possiblePositions: Array<[THorizontal, TVertical]> = [
-      [charList[arraySearch + 1], surName + 1 as TVertical],
-      [charList[arraySearch + 1], surName - 1 as TVertical],
-      [charList[arraySearch - 1], surName + 1 as TVertical],
-      [charList[arraySearch - 1], surName - 1 as TVertical],
-      [charList[arraySearch + 1], surName],
-      [charList[arraySearch - 1], surName],
-      [charList[arraySearch], surName + 1 as TVertical],
-      [charList[arraySearch], surName - 1 as TVertical],
+      [charList[arraySearch + 1], vertical + 1 as TVertical],
+      [charList[arraySearch + 1], vertical - 1 as TVertical],
+      [charList[arraySearch - 1], vertical + 1 as TVertical],
+      [charList[arraySearch - 1], vertical - 1 as TVertical],
+      [charList[arraySearch + 1], vertical],
+      [charList[arraySearch - 1], vertical],
+      [charList[arraySearch], vertical + 1 as TVertical],
+      [charList[arraySearch], vertical - 1 as TVertical],
     ];
 
     if (this.getPosition() === this.startPosition) {

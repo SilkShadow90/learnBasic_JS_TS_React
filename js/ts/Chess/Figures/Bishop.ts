@@ -9,13 +9,13 @@ import { charList, numList } from '../tools';
 export default class Bishop extends Figure {
   figureName = 'Bishop';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
-    const [firstName, surName] = this.getPosition();
-    const arraySearch: number = charList.indexOf(firstName, 0);
+    const [horizontal, vertical] = this.getPosition();
+    const arraySearch: number = charList.indexOf(horizontal, 0);
     const possiblePositions: Array<[THorizontal, TVertical]> = [
-      [charList[arraySearch + 1], surName + 1 as TVertical],
-      [charList[arraySearch + 1], surName - 1 as TVertical],
-      [charList[arraySearch - 1], surName + 1 as TVertical],
-      [charList[arraySearch - 1], surName - 1 as TVertical],
+      [charList[arraySearch + 1], vertical + 1 as TVertical],
+      [charList[arraySearch + 1], vertical - 1 as TVertical],
+      [charList[arraySearch - 1], vertical + 1 as TVertical],
+      [charList[arraySearch - 1], vertical - 1 as TVertical],
     ];
 
     return possiblePositions.filter(([char, num]) => char && numList.includes(num));
