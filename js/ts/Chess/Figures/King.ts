@@ -4,7 +4,7 @@ import { THorizontal, TVertical } from '../interfaces/index';
 import kingWhite from '../../../../img/king_white.svg';
 // @ts-ignore
 import kingBlack from '../../../../img/king_black.svg';
-import { charList } from '../tools';
+import { charList, numList } from '../tools';
 
 export default class King extends Figure {
   figureName = 'King';
@@ -20,8 +20,8 @@ export default class King extends Figure {
       [charList[arraySearch + 1], currentPosition[1] - 1 as TVertical],
       [charList[arraySearch - 1], currentPosition[1] + 1 as TVertical],
       [charList[arraySearch - 1], currentPosition[1] - 1 as TVertical],
-      [charList[arraySearch - 1], currentPosition[1]],
       [charList[arraySearch + 1], currentPosition[1]],
+      [charList[arraySearch - 1], currentPosition[1]],
       [charList[arraySearch], currentPosition[1] + 1 as TVertical],
       [charList[arraySearch], currentPosition[1] - 1 as TVertical],
     ];
@@ -29,8 +29,8 @@ export default class King extends Figure {
     if (currentPosition === this.startPosition) {
       possiblePositions.push(castling[0], castling[1]);
     }
-
-    return possiblePositions;
+    console.log(possiblePositions);
+    return possiblePositions.filter(([char, num]) => char && numList.includes(num));
   };
 
   render = (): HTMLElement => this.prerender(kingWhite, kingBlack)
