@@ -27,7 +27,7 @@ export default class King extends Figure {
     ];
 
     if (currentPosition === this.startPosition) {
-      possiblePositions.push(castling[0], castling[1]);
+      possiblePositions.push(castling);
     }
 
     return possiblePositions.filter(([char, num]) => char && numList.includes(num));
