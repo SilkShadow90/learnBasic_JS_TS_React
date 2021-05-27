@@ -14,7 +14,7 @@ export default class Rook extends Figure {
       .filter((char) => char)
       .map((char) => [char, horizontal]);
     const horizontalMovement: Array<[THorizontal, TVertical]> = numList
-      .filter((num) => num < numList.length + 1)
+      .filter((num) => num <= numList.length)
       .map((num) => [vertical, num])
       .concat(verticalMovement);
 
