@@ -12,10 +12,10 @@ export default class Rook extends Figure {
     const [horizontal, vertical] = this.getPosition();
     const verticalMovement: Array<[THorizontal, TVertical]> = charList
       .filter((char) => char)
-      .map((char) => [char, horizontal]);
+      .map((char) => [char, vertical]);
     const horizontalMovement: Array<[THorizontal, TVertical]> = numList
       .filter((num) => num <= numList.length)
-      .map((num) => [vertical, num])
+      .map((num) => [horizontal, num])
       .concat(verticalMovement);
 
     return horizontalMovement;
