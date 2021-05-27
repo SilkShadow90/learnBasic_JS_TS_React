@@ -9,14 +9,16 @@ import { charList, numList } from '../tools';
 export default class Rook extends Figure {
   figureName = 'Rook';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
-    const possiblePositions: Array<[THorizontal, TVertical]> = [];
-    const currentPosition: [THorizontal, TVertical] = this.getPosition();
-    const horizontalMovement: [THorizontal, TVertical] = numList.filter((value) => value < numList.length + 1).map((value) => [currentPosition[0], value]);
-    const verticalMovement = charList.filter((value) => value).map((value) => [value, currentPosition[1]]);
-    possiblePositions.push(horizontalMovement, verticalMovement);
-    console.log(possiblePositions);
+    const [horizontal, vertical] = this.getPosition();
+    const verticalMovement: Array<[THorizontal, TVertical]> = charList
+      .filter((char) => char)
+      .map((char) => [char, vertical]);
+    const horizontalMovement: Array<[THorizontal, TVertical]> = numList
+      .filter((num) => num <= numList.length)
+      .map((num) => [horizontal, num])
+      .concat(verticalMovement);
 
-    return possiblePositions;
+    return horizontalMovement;
   };
 
   render = (): HTMLElement => this.prerender(rookWhite, rookBlack)

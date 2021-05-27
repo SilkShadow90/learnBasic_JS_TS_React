@@ -9,17 +9,17 @@ import { charList, numList } from '../tools';
 export default class Knight extends Figure {
   figureName = 'Knight';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
-    const currentPosition = this.getPosition();
-    const arraySearch = charList.indexOf(currentPosition[0], 0);
+    const [horizontal, vertical] = this.getPosition();
+    const arraySearch = charList.indexOf(horizontal, 0);
     const possiblePositions: Array<[THorizontal, TVertical]> = [
-      [charList[arraySearch + 1], currentPosition[1] + 2 as TVertical],
-      [charList[arraySearch + 1], currentPosition[1] - 2 as TVertical],
-      [charList[arraySearch - 1], currentPosition[1] + 2 as TVertical],
-      [charList[arraySearch - 1], currentPosition[1] - 2 as TVertical],
-      [charList[arraySearch + 2], currentPosition[1] + 1 as TVertical],
-      [charList[arraySearch + 2], currentPosition[1] - 1 as TVertical],
-      [charList[arraySearch - 2], currentPosition[1] + 1 as TVertical],
-      [charList[arraySearch - 2], currentPosition[1] - 1 as TVertical],
+      [charList[arraySearch + 1], vertical + 2 as TVertical],
+      [charList[arraySearch + 1], vertical - 2 as TVertical],
+      [charList[arraySearch - 1], vertical + 2 as TVertical],
+      [charList[arraySearch - 1], vertical - 2 as TVertical],
+      [charList[arraySearch + 2], vertical + 1 as TVertical],
+      [charList[arraySearch + 2], vertical - 1 as TVertical],
+      [charList[arraySearch - 2], vertical + 1 as TVertical],
+      [charList[arraySearch - 2], vertical - 1 as TVertical],
     ];
 
     return possiblePositions.filter(([char, num]) => char && numList.includes(num));
