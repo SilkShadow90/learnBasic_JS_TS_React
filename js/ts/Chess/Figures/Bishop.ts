@@ -1,8 +1,6 @@
 import Figure, { IFigureDeps } from './Figure';
-import { THorizontal, TVertical } from '../interfaces/index';
-// @ts-ignore
+import { THorizontal, TVertical } from '../interfaces';
 import bishopWhite from '../../../../img/bishop_white.svg';
-// @ts-ignore
 import bishopBlack from '../../../../img/bishop_black.svg';
 import { charList, numList } from '../tools';
 

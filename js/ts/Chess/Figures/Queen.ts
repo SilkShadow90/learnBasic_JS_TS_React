@@ -1,8 +1,6 @@
 import Figure, { IFigureDeps } from './Figure';
-import { THorizontal, TVertical } from '../interfaces/index';
-// @ts-ignore
+import { THorizontal, TVertical } from '../interfaces';
 import queenWhite from '../../../../img/queen_white.svg';
-// @ts-ignore
 import queenBlack from '../../../../img/queen_black.svg';
 
 export default class Queen extends Figure {

@@ -68,6 +68,7 @@ export default class Dashboard {
         const horizontal: number = index % charList.length;
         const isEven: boolean = (vertical + horizontal) % 2 === 0;
         const id = `${charList[horizontal]}${newNumList[vertical]}`;
+        const availableId = `AP-${id}`;
 
         divNode.style.backgroundColor = isEven ? 'rgb(236, 217, 185)' : 'rgb(174, 137, 104)';
         divNode.style.height = '100px';
@@ -75,26 +76,22 @@ export default class Dashboard {
         divNode.style.justifyContent = 'center';
         divNode.style.alignItems = 'center';
         divNode.style.display = 'flex';
+        divNode.style.position = 'relative';
         divNode.id = id;
 
         divNode.ondragover = (ev) => {
-          // console.log("Drop");
-          // ev.currentTarget.style.background = 'lightyellow';
-
           ev.preventDefault();
-          const data = ev.dataTransfer.getData('text');
-          console.log(data);
-
-          // ev.target.appendChild(document.getElementById(data));
         };
 
         divNode.ondrop = (event) => {
-          console.log('Drop');
-          const data = event.dataTransfer.getData('text');
-          console.log(data);
-          console.log(event.target);
-          // event.target
-          // event.target.appendChild(document.getElementById(data));
+          const prevPosition: string = event.dataTransfer.getData('text');
+
+          if (event.target.id === availableId) {
+            const nextPosition: string = event.target.id.replace(/^\w+-(\w+)$/, '$1');
+            const figure: Figure = Rules.figurePositionsMap[prevPosition];
+
+            figure.setPosition(nextPosition.split('') as [THorizontal, TVertical]);
+          }
         };
 
         const kruzok = document.createElement('div');
@@ -103,13 +100,10 @@ export default class Dashboard {
         kruzok.style.width = '40px';
         kruzok.style.backgroundColor = 'green';
         kruzok.style.position = 'absolute';
+        kruzok.style.zIndex = '998';
         kruzok.style.borderRadius = '20px';
-        kruzok.id = `AP-${id}`;
+        kruzok.id = availableId;
         kruzok.hidden = true;
-
-        kruzok.ondrop = (event) => {
-          console.log(event.relatedTarget);
-        };
 
         divNode.append(kruzok);
 

@@ -1,8 +1,6 @@
 import Figure, { IFigureDeps } from './Figure';
-import { THorizontal, TVertical } from '../interfaces/index';
-// @ts-ignore
+import { THorizontal, TVertical } from '../interfaces';
 import kingWhite from '../../../../img/king_white.svg';
-// @ts-ignore
 import kingBlack from '../../../../img/king_black.svg';
 import { charList, numList } from '../tools';
 

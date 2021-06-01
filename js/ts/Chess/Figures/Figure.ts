@@ -22,6 +22,7 @@ export default abstract class Figure {
     const figureNode = document.createElement('img');
     figureNode.style.zIndex = '1';
     figureNode.draggable = true;
+    figureNode.style.position = 'absolute';
 
     const availablePositions = this.getNextPositionMap();
 
@@ -32,9 +33,6 @@ export default abstract class Figure {
       qwe.style.opacity = '0.5';
       ev.dataTransfer.setData('text', position.join(''));
     };
-    // figureNode.ondragover = (event) => {
-    //   console.log('figureNode', event);
-    // };
     figureNode.ondragend = () => {
       Dashboard.clearAvailablePosition(availablePositions);
       const position = this.getPosition();
@@ -59,6 +57,11 @@ export default abstract class Figure {
 
   public setPosition(position: [THorizontal, TVertical], isForce?: boolean): void {
     const availablePositions: Array<[THorizontal, TVertical]> = this.getNextPositionMap();
+
+    const prevPosition: [THorizontal, TVertical] = this.position;
+
+    Rules.figurePositionsMap[position.join('')] = Rules.figurePositionsMap[prevPosition.join('')];
+    Rules.figurePositionsMap[prevPosition.join('')] = null;
 
     if (isForce) {
       this.position = position;

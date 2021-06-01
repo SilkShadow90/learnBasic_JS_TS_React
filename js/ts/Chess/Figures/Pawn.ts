@@ -1,8 +1,6 @@
 import Figure, { IFigureDeps } from './Figure';
-import { THorizontal, TVertical } from '../interfaces/index';
-// @ts-ignore
+import { THorizontal, TVertical } from '../interfaces';
 import pawnWhite from '../../../../img/pawn_white.svg';
-// @ts-ignore
 import pawnBlack from '../../../../img/pawn_black.svg';
 
 export default class Pawn extends Figure {

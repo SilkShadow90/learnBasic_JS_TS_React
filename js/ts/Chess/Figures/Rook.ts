@@ -1,8 +1,6 @@
 import Figure, { IFigureDeps } from './Figure';
-import { THorizontal, TVertical } from '../interfaces/index';
-// @ts-ignore
+import { THorizontal, TVertical } from '../interfaces';
 import rookWhite from '../../../../img/rook_white.svg';
-// @ts-ignore
 import rookBlack from '../../../../img/rook_black.svg';
 import { charList, numList } from '../tools';
 

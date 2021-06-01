@@ -11,6 +11,7 @@
     }
   },
   "include": [
-    "js/ts/**/*"
+    "js/ts/**/*",
+    "js/ts/custom.d.ts"
   ]
 }
