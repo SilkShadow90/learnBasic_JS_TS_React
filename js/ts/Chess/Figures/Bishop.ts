@@ -21,3 +21,4 @@ export default class Bishop extends Figure {
 
   render = (): HTMLElement => this.prerender(bishopWhite, bishopBlack)
 }
+
