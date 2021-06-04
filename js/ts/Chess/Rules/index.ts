@@ -7,6 +7,7 @@ import Queen from '../Figures/Queen';
 import Bishop from '../Figures/Bishop';
 import Knight from '../Figures/Knight';
 import Rook from '../Figures/Rook';
+import Dashboard from "../Dashboard";
 
 export type TFiguresPositionMap = Record<'Pawn' | 'King' | 'Queen' | 'Bishop' | 'Knight' | 'Rook', Figure[]>
 
@@ -27,8 +28,13 @@ export default class Rules {
     return Rules.turnColor;
   }
 
-  private static switchColorTurn(): void {
+  public static switchColorTurn(): void {
     Rules.turnColor = Rules.turnColor === 'white' ? 'black' : 'white';
+    const poisk = Dashboard.getAllFiguresOfDashboard();
+    console.log(poisk);
+    Array.from(poisk).forEach((value: HTMLElement) => {
+      value.draggable = !value.draggable;
+    });
   }
 
   public static setAnotherFigurePosition(figure: Figure, newPosition: [THorizontal, TVertical]): void {

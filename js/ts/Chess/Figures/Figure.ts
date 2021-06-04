@@ -21,8 +21,9 @@ export default abstract class Figure {
   protected readonly prerender = (white: string, black: string): HTMLElement => {
     const figureNode = document.createElement('img');
     figureNode.style.zIndex = '1';
-    figureNode.draggable = true;
+    figureNode.draggable = this.color === 'white';
     figureNode.style.position = 'absolute';
+    figureNode.classList.add('figure');
 
     const availablePositions = this.getNextPositionMap();
 
@@ -33,12 +34,11 @@ export default abstract class Figure {
       qwe.style.opacity = '0.5';
       ev.dataTransfer.setData('text', position.join(''));
     };
+
     figureNode.ondragend = () => {
       Dashboard.clearAvailablePosition(availablePositions);
-      const position = this.getPosition();
-      const qwe = document.getElementById(position.join(''));
-      qwe.style.opacity = '1';
     };
+
     figureNode.width = 90;
     figureNode.height = 90;
     figureNode.src = this.color === 'white' ? white : black;
@@ -69,11 +69,15 @@ export default abstract class Figure {
     }
 
     const availablePosition: [THorizontal, TVertical] = availablePositions.find(
-      ([horizontal, vertical]) => position[0] === horizontal && position[1] === vertical,
+      ([horizontal, vertical]) => position[0] === horizontal && +position[1] === vertical,
     );
 
+    console.log('availablePosition', availablePosition);
+
     if (availablePosition) {
+      Dashboard.newRenderPosition(prevPosition, availablePosition);
       this.position = availablePosition;
+      Rules.switchColorTurn();
     }
   }
 

@@ -24,6 +24,10 @@ export default class Dashboard {
     return chessNode;
   }
 
+  public static getAllFiguresOfDashboard() {
+    return document.getElementsByClassName('figure');
+  }
+
   private static createFiguresInStartPositions(): void {
     const startFiguresPositionMap: TFiguresPositionMap = Rules.startFiguresPositionMap();
 
@@ -85,7 +89,8 @@ export default class Dashboard {
 
         divNode.ondrop = (event) => {
           const prevPosition: string = event.dataTransfer.getData('text');
-
+          const qwe = document.getElementById(prevPosition);
+          qwe.style.opacity = '1';
           if (event.target.id === availableId) {
             const nextPosition: string = event.target.id.replace(/^\w+-(\w+)$/, '$1');
             const figure: Figure = Rules.figurePositionsMap[prevPosition];
@@ -96,16 +101,25 @@ export default class Dashboard {
 
         const kruzok = document.createElement('div');
         kruzok.classList.add('availablePosition');
-        kruzok.style.height = '40px';
-        kruzok.style.width = '40px';
-        kruzok.style.backgroundColor = 'green';
+        kruzok.style.height = '100px';
+        kruzok.style.width = '100px';
         kruzok.style.position = 'absolute';
-        kruzok.style.zIndex = '998';
-        kruzok.style.borderRadius = '20px';
+        kruzok.style.zIndex = '997';
+        kruzok.style.opacity = '0.6';
         kruzok.id = availableId;
         kruzok.hidden = true;
+        kruzok.style.justifyContent = 'center';
+        kruzok.style.alignItems = 'center';
+        kruzok.style.display = 'flex';
 
         divNode.append(kruzok);
+
+        const kruzokVKruzke = document.createElement('div');
+        kruzokVKruzke.style.height = '30px';
+        kruzokVKruzke.style.width = '30px';
+        kruzokVKruzke.style.backgroundColor = 'green';
+        kruzokVKruzke.style.borderRadius = '15px';
+        kruzok.append(kruzokVKruzke);
 
         function cletka():Record<'justifyContent' | 'alignItems', 'flex-start' | 'flex-end' | 'center'>[] {
           if (!vertical && !horizontal) {
@@ -120,6 +134,8 @@ export default class Dashboard {
           if (horizontal === 7 && vertical === 7) {
             return [{ justifyContent: 'flex-start', alignItems: 'flex-end' }, { justifyContent: 'flex-end', alignItems: 'flex-start' }];
           }
+
+          return undefined;
         }
 
         function ugl(): Record<'justifyContent' | 'alignItems', 'flex-start' | 'flex-end' | 'center'> {
@@ -215,5 +231,14 @@ export default class Dashboard {
       const positionsNode = document.getElementById(`AP-${position.join('')}`);
       positionsNode.hidden = false;
     });
+  }
+
+  public static newRenderPosition(prevPosition:[THorizontal, TVertical], newPosition:[THorizontal, TVertical]):void {
+    const i: HTMLElement = document.getElementById(prevPosition.join(''));
+    const y: HTMLElement = document.getElementById(newPosition.join(''));
+    const figure = i.getElementsByClassName('figure')?.[0];
+    y.append(figure);
+    console.log(i);
+    console.log(y);
   }
 }
