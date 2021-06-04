@@ -9,16 +9,18 @@ export default class Bishop extends Figure {
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
     const [horizontal, vertical] = this.getPosition();
     const arraySearch: number = charList.indexOf(horizontal, 0);
-    const possiblePositions: Array<[THorizontal, TVertical]> = [
-      [charList[arraySearch + 1], vertical + 1 as TVertical],
-      [charList[arraySearch + 1], vertical - 1 as TVertical],
-      [charList[arraySearch - 1], vertical + 1 as TVertical],
-      [charList[arraySearch - 1], vertical - 1 as TVertical],
-    ];
+    const possiblePositions: Array<[THorizontal, TVertical]> = [];
+    numList.forEach((i) => {
+      possiblePositions.push(
+        [charList[arraySearch + i], vertical + i as TVertical],
+        [charList[arraySearch + i], vertical - i as TVertical],
+        [charList[arraySearch - i], vertical + i as TVertical],
+        [charList[arraySearch - i], vertical - i as TVertical],
+      );
+    });
 
-    return possiblePositions.filter(([char, num]) => char && numList.includes(num));
+    return possiblePositions.filter(([char, num]) => charList.includes(char) && numList.includes(num));
   };
 
   render = (): HTMLElement => this.prerender(bishopWhite, bishopBlack)
 }
-

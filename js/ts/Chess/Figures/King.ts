@@ -28,7 +28,7 @@ export default class King extends Figure {
       possiblePositions.push(...castling);
     }
 
-    return possiblePositions.filter(([char, num]) => char && numList.includes(num));
+    return possiblePositions.filter(([char, num]) => charList.includes(char) && numList.includes(num));
   };
 
   render = (): HTMLElement => this.prerender(kingWhite, kingBlack)

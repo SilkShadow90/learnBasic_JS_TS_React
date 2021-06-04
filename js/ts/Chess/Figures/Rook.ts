@@ -8,15 +8,18 @@ export default class Rook extends Figure {
   figureName = 'Rook';
   getNextPositionMap = (): Array<[THorizontal, TVertical]> => {
     const [horizontal, vertical] = this.getPosition();
-    const verticalMovement: Array<[THorizontal, TVertical]> = charList
-      .filter((char) => char)
-      .map((char) => [char, vertical]);
-    const horizontalMovement: Array<[THorizontal, TVertical]> = numList
-      .filter((num) => num <= numList.length)
-      .map((num) => [horizontal, num])
-      .concat(verticalMovement);
+    const arraySearch: number = charList.indexOf(horizontal, 0);
+    const possiblePositions: Array<[THorizontal, TVertical]> = [];
+    numList.forEach((i) => {
+      possiblePositions.push(
+        [charList[arraySearch + i], vertical as TVertical],
+        [charList[arraySearch], vertical + i as TVertical],
+        [charList[arraySearch - i], vertical as TVertical],
+        [charList[arraySearch], vertical - i as TVertical],
+      );
+    });
 
-    return horizontalMovement;
+    return possiblePositions.filter(([char, num]) => charList.includes(char) && numList.includes(num));
   };
 
   render = (): HTMLElement => this.prerender(rookWhite, rookBlack)
