@@ -20,7 +20,7 @@ export default class Knight extends Figure {
       [charList[arraySearch - 2], vertical - 1 as TVertical],
     ];
 
-    return possiblePositions.filter(([char, num]) => char && numList.includes(num));
+    return possiblePositions.filter(([char, num]) => charList.includes(char) && numList.includes(num));
   };
 
   render = (): HTMLElement => this.prerender(knightWhite, knightBlack)
