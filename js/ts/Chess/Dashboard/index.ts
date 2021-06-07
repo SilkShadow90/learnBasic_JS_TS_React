@@ -1,7 +1,7 @@
-import { charList, numList } from '../tools/index';
+import { charList, numList } from '../tools';
 import Rules, { TFiguresPositionMap } from '../Rules/index';
 import Figure from '../Figures/figure';
-import { THorizontal, TVertical } from '../interfaces/index';
+import { THorizontal, TVertical } from '../interfaces';
 
 export default class Dashboard {
   private static readonly id: string = 'dashboard';
@@ -104,7 +104,7 @@ export default class Dashboard {
         kruzok.style.height = '100px';
         kruzok.style.width = '100px';
         kruzok.style.position = 'absolute';
-        kruzok.style.zIndex = '997';
+        kruzok.style.zIndex = '100001';
         kruzok.style.opacity = '0.6';
         kruzok.id = availableId;
         kruzok.hidden = true;
@@ -216,7 +216,6 @@ export default class Dashboard {
     chessNode.append(...dashboard);
 
     this.createFiguresInStartPositions();
-    console.log(Rules.figurePositionsMap);
   }
 
   public static clearAvailablePosition(positions: Array<[THorizontal, TVertical]>): void {
@@ -237,8 +236,9 @@ export default class Dashboard {
     const i: HTMLElement = document.getElementById(prevPosition.join(''));
     const y: HTMLElement = document.getElementById(newPosition.join(''));
     const figure = i.getElementsByClassName('figure')?.[0];
+
+    const figure1 = y.getElementsByClassName('figure')?.[0];
+    figure1?.remove();
     y.append(figure);
-    console.log(i);
-    console.log(y);
   }
 }
