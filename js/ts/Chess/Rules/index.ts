@@ -7,7 +7,8 @@ import Queen from '../Figures/Queen';
 import Bishop from '../Figures/Bishop';
 import Knight from '../Figures/Knight';
 import Rook from '../Figures/Rook';
-import Dashboard from "../Dashboard";
+import Dashboard from '../Dashboard';
+import { rules } from '@typescript-eslint/eslint-plugin';
 
 export type TFiguresPositionMap = Record<'Pawn' | 'King' | 'Queen' | 'Bishop' | 'Knight' | 'Rook', Figure[]>
 
@@ -83,5 +84,49 @@ export default class Rules {
         new Rook({ color: 'black', startPosition: ['H', 8] }),
       ],
     };
+  }
+
+  public static getAvailablePositions(arr: Array<[THorizontal, TVertical]>, color, figureName, position: [THorizontal, TVertical]): Array<[THorizontal, TVertical]> {
+    const allFiguresOfDashboard = Rules.figurePositionsMap;
+    const newArray = arr.slice();
+
+    const addPositions = [];
+
+    const test = newArray.filter((value) => {
+      const figure = allFiguresOfDashboard[value.join('')];
+
+      if (figureName === 'Pawn') {
+        const qwe1 = charList.indexOf(position[0]);
+        const qwe2 = numList.indexOf(position[1]);
+
+        if (color === 'black') {
+          if (allFiguresOfDashboard[`${charList[qwe1 - 1]}${numList[qwe2 + 1]}`]) {
+            addPositions.push([charList[qwe1 - 1], numList[qwe2 + 1]]);
+          }
+          if (allFiguresOfDashboard[`${charList[qwe1 + 1]}${numList[qwe2 + 1]}`]) {
+            addPositions.push([charList[qwe1 + 1], numList[qwe2 + 1]]);
+          }
+        }
+
+        if (color === 'white') {
+          if (allFiguresOfDashboard[`${charList[qwe1 - 1]}${numList[qwe2 - 1]}`]) {
+            addPositions.push([charList[qwe1 - 1], numList[qwe2 - 1]]);
+          }
+          if (allFiguresOfDashboard[`${charList[qwe1 + 1]}${numList[qwe2 - 1]}`]) {
+            addPositions.push([charList[qwe1 + 1], numList[qwe2 - 1]]);
+          }
+        }
+      }
+
+      if (!figure) {
+        return true;
+      }
+
+      return color !== figure?.color;
+    });
+    console.log(test);
+    console.log(addPositions);
+    
+    return [...test, ...addPositions];
   }
 }

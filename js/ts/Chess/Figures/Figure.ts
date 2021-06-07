@@ -25,9 +25,10 @@ export default abstract class Figure {
     figureNode.style.position = 'absolute';
     figureNode.classList.add('figure');
 
-    const availablePositions = this.getNextPositionMap();
+    let availablePositions;
 
     figureNode.ondragstart = (ev) => {
+      availablePositions = this.getNextPositionMap();
       Dashboard.renderAvailablePosition(availablePositions);
       const position = this.getPosition();
       const qwe = document.getElementById(position.join(''));

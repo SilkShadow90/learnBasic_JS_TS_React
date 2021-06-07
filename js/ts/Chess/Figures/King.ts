@@ -3,6 +3,7 @@ import { THorizontal, TVertical } from '../interfaces';
 import kingWhite from '../../../../img/king_white.svg';
 import kingBlack from '../../../../img/king_black.svg';
 import { charList, numList } from '../tools';
+import Rules from '../Rules';
 
 export default class King extends Figure {
   figureName = 'King';
@@ -13,7 +14,7 @@ export default class King extends Figure {
       [charList[arraySearch + 2], vertical],
       [charList[arraySearch - 2], vertical],
     ];
-    const possiblePositions: Array<[THorizontal, TVertical]> = [
+    const allPossiblePositions: Array<[THorizontal, TVertical]> = [
       [charList[arraySearch + 1], vertical + 1 as TVertical],
       [charList[arraySearch + 1], vertical - 1 as TVertical],
       [charList[arraySearch - 1], vertical + 1 as TVertical],
@@ -25,10 +26,12 @@ export default class King extends Figure {
     ];
 
     if (this.getPosition() === this.startPosition) {
-      possiblePositions.push(...castling);
+      allPossiblePositions.push(...castling);
     }
 
-    return possiblePositions.filter(([char, num]) => charList.includes(char) && numList.includes(num));
+    const possiblePositions = allPossiblePositions.filter(([char, num]) => charList.includes(char) && numList.includes(num));
+
+    return Rules.getAvailablePositions(possiblePositions, this.color, this.figureName, this.getPosition());
   };
 
   render = (): HTMLElement => this.prerender(kingWhite, kingBlack)
