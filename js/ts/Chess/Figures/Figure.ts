@@ -20,14 +20,16 @@ export default abstract class Figure {
 
   protected readonly prerender = (white: string, black: string): HTMLElement => {
     const figureNode = document.createElement('img');
-    figureNode.style.zIndex = '1';
+    figureNode.style.zIndex = '10000';
     figureNode.draggable = this.color === 'white';
     figureNode.style.position = 'absolute';
     figureNode.classList.add('figure');
 
-    const availablePositions = this.getNextPositionMap();
+    let availablePositions: Array<[THorizontal, TVertical]>;
 
     figureNode.ondragstart = (ev) => {
+      availablePositions = this.getNextPositionMap();
+
       Dashboard.renderAvailablePosition(availablePositions);
       const position = this.getPosition();
       const qwe = document.getElementById(position.join(''));
@@ -71,8 +73,6 @@ export default abstract class Figure {
     const availablePosition: [THorizontal, TVertical] = availablePositions.find(
       ([horizontal, vertical]) => position[0] === horizontal && +position[1] === vertical,
     );
-
-    console.log('availablePosition', availablePosition);
 
     if (availablePosition) {
       Dashboard.newRenderPosition(prevPosition, availablePosition);

@@ -28,6 +28,10 @@ export default class Rules {
     return Rules.turnColor;
   }
 
+  public static removeFigure(position:[THorizontal, TVertical]):void {
+    Rules.figurePositionsMap[position.join('')] = null;
+  }
+
   public static switchColorTurn(): void {
     Rules.turnColor = Rules.turnColor === 'white' ? 'black' : 'white';
     const poisk = Dashboard.getAllFiguresOfDashboard();

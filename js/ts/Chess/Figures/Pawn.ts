@@ -2,6 +2,8 @@ import Figure, { IFigureDeps } from './Figure';
 import { THorizontal, TVertical } from '../interfaces';
 import pawnWhite from '../../../../img/pawn_white.svg';
 import pawnBlack from '../../../../img/pawn_black.svg';
+// import Rules from '../Rules';
+import { numList } from '../tools';
 
 export default class Pawn extends Figure {
   figureName = 'Pawn';
@@ -17,5 +19,27 @@ export default class Pawn extends Figure {
     return possiblePositions;
   };
 
-  render = (): HTMLElement => this.prerender(pawnWhite, pawnBlack)
+  render = (): HTMLElement => this.prerender(pawnWhite, pawnBlack);
+
+  setPosition(position: [THorizontal, TVertical], isForce?: boolean): void {
+    super.setPosition(position, isForce);
+
+    if (+position[1] === numList[0] || +position[1] === numList.slice(-1)[0]) {
+      // const vibor = document.createElement('div');
+      // vibor.classList.add('availablePosition');
+      // vibor.style.height = '100px';
+      // vibor.style.width = '100px';
+      // vibor.style.position = 'absolute';
+      // vibor.style.zIndex = '100001';
+      // vibor.style.opacity = '0.6';
+      // // vibor.id = availableId;
+      // vibor.hidden = true;
+      // vibor.style.justifyContent = 'center';
+      // vibor.style.alignItems = 'center';
+      // vibor.style.display = 'flex';
+      // vibor.style.color = 'red';
+      //
+      // console.log(vibor);
+    }
+  }
 }
